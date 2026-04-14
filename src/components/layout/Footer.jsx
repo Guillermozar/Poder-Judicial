@@ -26,10 +26,10 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-bold mb-6 text-sm uppercase tracking-wider">Enlaces Rápidos</h4>
             <ul className="space-y-4 text-sm">
-              <li><a href="#" className="hover:text-white flex items-center gap-2 focus:outline-none"><ChevronRight size={14} /> Corte Suprema de Justicia</a></li>
+              <li><a href="https://www.pj.gov.py/" target="_blank" rel="noopener noreferrer" className="hover:text-white flex items-center gap-2 focus:outline-none"><ChevronRight size={14} /> Corte Suprema de Justicia</a></li>
               <li><a href="#" className="hover:text-white flex items-center gap-2 focus:outline-none"><ChevronRight size={14} /> Antecedentes Penales</a></li>
-              <li><a href="#" className="hover:text-white flex items-center gap-2 focus:outline-none"><ChevronRight size={14} /> Sistema Judisoft</a></li>
-              <li><a href="#" className="hover:text-white flex items-center gap-2 focus:outline-none"><ChevronRight size={14} /> Tasas Judiciales</a></li>
+              <li><a href="https://apps.csj.gov.py/login" target="_blank" rel="noopener noreferrer" className="hover:text-white flex items-center gap-2 focus:outline-none"><ChevronRight size={14} /> Sistema Judisoft</a></li>
+              <li><a href="https://ingresosjudiciales.csj.gov.py/LiquidacionesWeb/home.seam" target="_blank" rel="noopener noreferrer" className="hover:text-white flex items-center gap-2 focus:outline-none"><ChevronRight size={14} /> Tasas Judiciales</a></li>
             </ul>
           </div>
 
