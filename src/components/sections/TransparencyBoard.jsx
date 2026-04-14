@@ -1,0 +1,61 @@
+import React from 'react';
+import { Mail, ExternalLink, ShieldCheck, ChevronRight, User } from 'lucide-react';
+
+const TransparencyBoard = () => {
+  const authorities = [
+    { name: "Mag. Miguel Ángel Vargas Díaz", role: "Presidente" },
+    { name: "Mag. Nilsa Inés Monzón", role: "Vicepresidente Primera" },
+    { name: "Mag. Claudia A. Scappini", role: "Vicepresidente Segunda" }
+  ];
+
+  return (
+    <section className="bg-white py-20 border-y border-slate-200">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col lg:flex-row gap-16">
+          {/* Left: Authorities */}
+          <div className="lg:w-2/3">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="h-8 w-2 bg-primary-900 rounded-full"></div>
+              <h2 className="text-3xl font-extrabold text-slate-800 uppercase tracking-tight">Consejo de Administración</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {authorities.map((a, i) => (
+                <div key={i} className="bg-slate-50 rounded-3xl p-6 border border-slate-100 text-center hover:shadow-lg transition-shadow">
+                  <div className="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-white shadow-md bg-primary-100 flex items-center justify-center text-primary-600">
+                    <User size={48} strokeWidth={1.5} />
+                  </div>
+                  <h4 className="font-bold text-slate-900 leading-tight">{a.name}</h4>
+                  <p className="text-sm text-primary-700 font-semibold mt-1">{a.role}</p>
+                  <div className="mt-4 pt-4 border-t border-slate-200 flex justify-center gap-3">
+                    <button className="text-slate-400 hover:text-primary-600 focus:outline-none focus:text-primary-600" aria-label="Enviar correo"><Mail size={16} /></button>
+                    <button className="text-slate-400 hover:text-primary-600 focus:outline-none focus:text-primary-600" aria-label="Abrir perfil"><ExternalLink size={16} /></button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right: Transparency Law */}
+          <div className="lg:w-1/3 bg-primary-50 rounded-3xl p-8 border border-primary-100">
+            <div className="flex items-center gap-3 mb-6">
+              <ShieldCheck className="text-primary-900 w-8 h-8" />
+              <h2 className="text-2xl font-bold text-primary-900">Transparencia Activa</h2>
+            </div>
+            <p className="text-slate-600 mb-6 text-sm leading-relaxed">
+              Cumplimiento estricto de la <strong>Ley N° 5282/14</strong>. Acceda a la nómina de funcionarios, presupuesto detallado y viáticos de la Tercera Circunscripción.
+            </p>
+            <div className="space-y-3">
+              {['Nómina de Funcionarios', 'Ejecución Presupuestaria', 'Inventario de Bienes'].map((item) => (
+                <button key={item} className="w-full bg-white p-4 rounded-xl text-left flex justify-between items-center text-sm font-bold text-slate-700 hover:bg-primary-900 hover:text-white transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500">
+                  {item} <ChevronRight size={16} />
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default TransparencyBoard;
