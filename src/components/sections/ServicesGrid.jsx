@@ -7,7 +7,7 @@ const ServicesGrid = () => {
     { title: "Antecedentes", icon: <ShieldCheck className="w-8 h-8" />, desc: "Informes y Certificados Penales", color: "bg-emerald-600", link: "#" },
     { title: "Tasas Judiciales", icon: <FileText className="w-8 h-8" />, desc: "Liquidación y Pago de Tasas", color: "bg-amber-600", link: "https://ingresosjudiciales.csj.gov.py/LiquidacionesWeb/home.seam" },
     { title: "Mediación", icon: <Users className="w-8 h-8" />, desc: "Resolución Alternativa de Conflictos", color: "bg-indigo-600", link: "#" },
-    { title: "Jurisprudencia", icon: <BookOpen className="w-8 h-8" />, desc: "Base de Datos de Sentencias", color: "bg-slate-700", link: "#" },
+    { title: "Formularios de Gestión y Procedimiento", icon: <BookOpen className="w-8 h-8" />, desc: "Gestión y Documentación Judicial", color: "bg-slate-700", link: "https://www.csj.gov.py/igdj/" },
     { title: "Transparencia", icon: <Info className="w-8 h-8" />, desc: "Ley 5282/14 - Información Pública", color: "bg-red-700", link: "https://transparencia.una.py/wp-content/uploads/2022/09/LEY_5282_2014.pdf" },
   ];
 
