@@ -1,16 +1,17 @@
 import React from 'react';
-import { Header, Hero, Institutional, ServicesGrid, TransparencyBoard, DistrictsGuide, Footer } from './components';
+import { Routes, Route } from 'react-router-dom';
+import { Header, Footer, Institutional } from './components';
+import Home from './pages/Home';
 
 const App = () => {
   return (
-    <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
+    <div className="min-h-screen bg-slate-50 font-sans text-slate-900 flex flex-col">
       <Header />
-      <main>
-        <Hero />
-        <Institutional />
-        <ServicesGrid />
-        <TransparencyBoard />
-        <DistrictsGuide />
+      <main className="flex-grow">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/institucional" element={<Institutional />} />
+        </Routes>
       </main>
       <Footer />
     </div>
