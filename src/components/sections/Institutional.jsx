@@ -163,7 +163,7 @@ const Institutional = () => {
                 <div className="space-y-3">
                   <div>
                     <span className="text-xs font-bold text-slate-400 uppercase">Primera Sala</span>
-                    <p className="text-slate-700 mt-1">Maria Zunilda Fleitas, Zulma Luna, Lourdes Simón.</p>
+                    <p className="text-slate-700 mt-1">Lourdes Simón.</p>
                   </div>
                   <div>
                     <span className="text-xs font-bold text-slate-400 uppercase">Segunda Sala</span>
