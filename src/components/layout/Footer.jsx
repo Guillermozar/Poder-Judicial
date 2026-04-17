@@ -49,8 +49,9 @@ const Footer = () => {
 
         </div>
 
-        <div className="pt-8 border-t border-slate-800 text-center text-xs">
-          <p>© {new Date().getFullYear()} Poder Judicial - Tercera Circunscripción de Itapúa. Todos los derechos reservados.</p>
+        <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
+          <p className="text-center md:text-left">© {new Date().getFullYear()} Poder Judicial - Tercera Circunscripción de Itapúa. Todos los derechos reservados.</p>
+          <p className="text-slate-500 font-medium">Hecho por Lic. Guillermo Zaracho Zayas</p>
         </div>
       </div>
     </footer>
