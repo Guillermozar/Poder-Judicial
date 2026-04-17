@@ -85,11 +85,11 @@ const Header = () => {
       )}
 
       {/* Botón flotante de información */}
-      <div className="fixed bottom-6 right-6 z-50">
+      <div className="fixed bottom-6 left-6 z-50">
         {showInfo && (
-          <div className="absolute bottom-full right-0 mb-4 bg-white text-slate-800 p-5 rounded-2xl shadow-2xl w-72 animate-in slide-in-from-bottom-2 duration-200 border border-slate-100">
+          <div className="absolute bottom-full left-0 mb-4 bg-white text-slate-800 p-5 rounded-2xl shadow-2xl w-72 animate-in slide-in-from-bottom-2 duration-200 border border-slate-100">
             <div className="flex justify-between items-center mb-4">
-              <h4 className="font-bold text-primary-900">Información Útil</h4>
+              <h4 className="font-bold text-primary-900">Poder Judicial Itapúa</h4>
               <button onClick={() => setShowInfo(false)} className="text-slate-400 hover:text-slate-700">
                 <X size={18} />
               </button>
