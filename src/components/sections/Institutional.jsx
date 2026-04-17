@@ -1,0 +1,349 @@
+import React from 'react';
+import { 
+  Scale, Shield, Zap, Eye, MapPin, Building2, 
+  Users, ChevronRight, Landmark, FileCheck, PhoneCall, 
+  Gavel, CheckCircle2, Navigation 
+} from 'lucide-react';
+
+const Institutional = () => {
+  return (
+    <section id="institucional" className="relative py-24 bg-white overflow-hidden scroll-mt-20">
+      {/* Background Decor */}
+      <div className="absolute top-0 inset-x-0 h-64 bg-slate-900 -mx-4 sm:-mx-6 lg:-mx-8">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        
+        {/* 1. Presentación Institucional */}
+        <div className="text-center max-w-3xl mx-auto mb-20 relative">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100/80 border border-slate-200 text-slate-600 text-sm font-medium mb-6 backdrop-blur-md shadow-sm">
+            <Landmark size={16} className="text-blue-700" />
+            <span>Tercera Circunscripción Judicial</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-6">
+            Poder <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-slate-900">Judicial de Itapúa</span>
+          </h2>
+          <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-light">
+            Sede central en Encarnación, encargada de impartir justicia en el Departamento de Itapúa con autonomía, eficiencia y compromiso en nuestros 30 distritos.
+          </p>
+        </div>
+
+        {/* 2. Identidad Estratégica (Grid) */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-24 cursor-default">
+          {/* Misión */}
+          <div className="group bg-slate-50 border border-slate-100 rounded-2xl p-8 hover:bg-white hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300">
+            <div className="w-12 h-12 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
+              <Navigation size={24} />
+            </div>
+            <h3 className="text-lg font-bold text-slate-900 mb-3">Misión</h3>
+            <p className="text-slate-600 text-sm leading-relaxed">
+              Administrar justicia oportuna que garantice derechos, contribuyendo a la convivencia pacífica y al desarrollo del país.
+            </p>
+          </div>
+
+          {/* Visión */}
+          <div className="group bg-slate-50 border border-slate-100 rounded-2xl p-8 hover:bg-white hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300">
+            <div className="w-12 h-12 rounded-xl bg-slate-200 text-slate-700 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-300">
+              <Eye size={24} />
+            </div>
+            <h3 className="text-lg font-bold text-slate-900 mb-3">Visión</h3>
+            <p className="text-slate-600 text-sm leading-relaxed">
+              Un Poder Judicial independiente, transparente y eficiente, que asegure el acceso equitativo a la justicia.
+            </p>
+          </div>
+
+          {/* Valores: Independencia & Imparcialidad */}
+          <div className="group bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-8 text-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300 sm:col-span-2 lg:col-span-2 relative overflow-hidden">
+            <div className="absolute top-0 right-0 p-8 opacity-10">
+              <Scale size={120} />
+            </div>
+            <div className="relative z-10">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center backdrop-blur-sm">
+                  <Shield size={20} className="text-blue-300" />
+                </div>
+                <h3 className="text-lg font-bold">Valores Institucionales</h3>
+              </div>
+              <div className="grid sm:grid-cols-2 gap-6">
+                <div>
+                  <h4 className="flex items-center gap-2 font-semibold text-blue-200 mb-1">
+                    <CheckCircle2 size={16} /> Independencia
+                  </h4>
+                  <p className="text-slate-400 text-sm">Resoluciones basadas estrictamente en la ley, sin injerencias estructurales.</p>
+                </div>
+                <div>
+                  <h4 className="flex items-center gap-2 font-semibold text-blue-200 mb-1">
+                    <CheckCircle2 size={16} /> Imparcialidad
+                  </h4>
+                  <p className="text-slate-400 text-sm">Trato rigurosamente equitativo para todas las partes en proceso.</p>
+                </div>
+                <div>
+                  <h4 className="flex items-center gap-2 font-semibold text-blue-200 mb-1">
+                    <CheckCircle2 size={16} /> Transparencia
+                  </h4>
+                  <p className="text-slate-400 text-sm">Gestión pública totalmente abierta al control ciudadano y auditoría.</p>
+                </div>
+                <div>
+                  <h4 className="flex items-center gap-2 font-semibold text-blue-200 mb-1">
+                    <CheckCircle2 size={16} /> Eficiencia
+                  </h4>
+                  <p className="text-slate-400 text-sm">Optimización constante de los tiempos procesales y recursos del Estado.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 3. Autoridades Vigentes */}
+        <div className="mb-24">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">Autoridades de la Circunscripción</h2>
+            <p className="text-slate-500 max-w-2xl mx-auto">Gestión institucional amparada en un liderazgo enfocado en el fortalecimiento y la modernización de los procesos judiciales.</p>
+          </div>
+          
+          <div className="grid lg:grid-cols-5 gap-8">
+            {/* Superintendentes - Destacados */}
+            <div className="lg:col-span-2 space-y-4">
+              <h3 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-6 pl-2 border-l-2 border-blue-600">Ministros Superintendentes</h3>
+              
+              {[
+                { name: "Dra. María Carolina Llanes Ocampos" },
+                { name: "Dr. César Manuel Diesel Junghanns" }
+              ].map((autoridad, idx) => (
+                <div key={idx} className="flex items-center gap-4 bg-white border border-slate-200 p-4 rounded-xl shadow-sm hover:border-blue-300 transition-colors cursor-default">
+                  <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center shrink-0 border border-slate-200">
+                    <Users size={20} className="text-slate-600" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-slate-800 text-[15px]">{autoridad.name}</h4>
+                    <p className="text-xs text-blue-600 font-medium">Corte Suprema de Justicia</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Consejo */}
+            <div className="lg:col-span-3 space-y-4">
+              <h3 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-6 pl-2 border-l-2 border-slate-400">Consejo de Administración</h3>
+              
+              <div className="grid sm:grid-cols-2 gap-4">
+                {[
+                  { title: "Presidente", name: "Abg. Miguel Ángel Vargas Díaz" },
+                  { title: "Vicepresidente 1°", name: "Abg. Nilsa Inés Monzón de Sarquis" },
+                  { title: "Vicepresidente 2°", name: "Abg. Claudia Andrea Scappini Parzajuk" }
+                ].map((member, idx) => (
+                  <div key={idx} className={`p-5 rounded-xl border border-slate-100 bg-slate-50 transition-colors ${idx === 0 ? 'sm:col-span-2 bg-gradient-to-r from-slate-50 to-white shadow-sm border-b-2 border-b-slate-200' : ''}`}>
+                    <p className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">{member.title}</p>
+                    <p className="font-semibold text-slate-800">{member.name}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 4. Estructura y Presencia */}
+        <div className="grid lg:grid-cols-2 gap-12 mb-24">
+          
+          {/* Tribunales */}
+          <div>
+            <div className="mb-8">
+              <h3 className="text-2xl font-bold text-slate-900 mb-2">Estructura Jurisdiccional</h3>
+              <p className="text-slate-500 text-sm">Tribunales de Apelación que aseguran la revisión técnica.</p>
+            </div>
+            
+            <div className="space-y-4">
+              {/* Accordion-like cards */}
+              <div className="bg-white border text-sm border-slate-200 rounded-xl p-5 hover:shadow-md transition-shadow">
+                <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3">
+                  <Gavel size={18} className="text-blue-600"/> Civil, Comercial y Laboral
+                </h4>
+                <div className="space-y-3">
+                  <div>
+                    <span className="text-xs font-bold text-slate-400 uppercase">Primera Sala</span>
+                    <p className="text-slate-700 mt-1">Maria Zunilda Fleitas, Zulma Luna, Lourdes Simón.</p>
+                  </div>
+                  <div>
+                    <span className="text-xs font-bold text-slate-400 uppercase">Segunda Sala</span>
+                    <p className="text-slate-700 mt-1">César Cáceres, Camilo Cantero, Miguel Ángel Vargas.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white border text-sm border-slate-200 rounded-xl p-5 hover:shadow-md transition-shadow">
+                <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3">
+                  <Gavel size={18} className="text-blue-600"/> Penal
+                </h4>
+                <div className="space-y-3">
+                  <div>
+                    <span className="text-xs font-bold text-slate-400 uppercase">Primera Sala</span>
+                    <p className="text-slate-700 mt-1">Sandra Palacios, Víctor Vega, Soledad Benítez.</p>
+                  </div>
+                  <div>
+                    <span className="text-xs font-bold text-slate-400 uppercase">Segunda Sala</span>
+                    <p className="text-slate-700 mt-1">Bernardino Arzamendia, Claudia Scappini, Sonia Rojas.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white border text-sm border-slate-200 rounded-xl p-5 hover:shadow-md transition-shadow">
+                <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3">
+                  <Gavel size={18} className="text-blue-600"/> Niñez y Adolescencia
+                </h4>
+                <p className="text-slate-700">Augusto Paredes, Cristino Yeza Araújo, Nilsa Monzón de Sarquis.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Justicia de Paz */}
+          <div>
+            <div className="mb-8">
+              <h3 className="text-2xl font-bold text-slate-900 mb-2">Presencia Territorial</h3>
+              <p className="text-slate-500 text-sm">Cobertura total en los 30 distritos del departamento.</p>
+            </div>
+            
+            <div className="bg-slate-900 rounded-2xl p-1 shadow-xl">
+              <div className="bg-slate-800/50 rounded-xl p-6 text-white h-full relative overflow-hidden backdrop-blur-md">
+                {/* Decorative Map Pattern Here */}
+                <div className="absolute right-0 bottom-0 opacity-10">
+                  <MapPin size={200} />
+                </div>
+                
+                <h4 className="text-lg font-semibold text-white mb-6 flex items-center gap-2 relative z-10">
+                  <Scale size={20} className="text-blue-400"/>
+                  Juzgados de Paz Destacados
+                </h4>
+
+                <ul className="space-y-4 relative z-10 text-sm">
+                  <li className="flex gap-4 items-start">
+                    <div className="mt-1 w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.8)]"></div>
+                    <div>
+                      <span className="font-bold text-blue-100">Encarnación:</span>
+                      <p className="text-slate-300">Abg. Melina Konjati (S1) y Abg. María del Carmen (S2)</p>
+                    </div>
+                  </li>
+                  <li className="flex gap-4 items-start">
+                    <div className="mt-1 w-2 h-2 rounded-full bg-slate-400"></div>
+                    <div>
+                      <span className="font-bold text-slate-100">Cambyretá:</span>
+                      <p className="text-slate-300">Abg. María Romilda Molinas</p>
+                    </div>
+                  </li>
+                  <li className="flex gap-4 items-start">
+                    <div className="mt-1 w-2 h-2 rounded-full bg-slate-400"></div>
+                    <div>
+                      <span className="font-bold text-slate-100">Coronel Bogado:</span>
+                      <p className="text-slate-300">Abg. Luz Marina del Rocío Miño</p>
+                    </div>
+                  </li>
+                  <li className="flex gap-4 items-start">
+                     <div className="mt-1 w-2 h-2 rounded-full bg-slate-400"></div>
+                     <div>
+                       <span className="font-bold text-slate-100">Hohenau & Bella Vista:</span>
+                       <p className="text-slate-300">Abg. Laila Iwaskewysz y Abg. Tomasa Váldez</p>
+                     </div>
+                  </li>
+                </ul>
+                
+                <div className="mt-8 pt-6 border-t border-slate-700 flex justify-between items-center relative z-10">
+                  <span className="text-slate-400 text-xs font-semibold uppercase tracking-wider">Cobertura Total</span>
+                  <span className="bg-slate-700/80 text-white font-bold px-3 py-1 rounded-md text-xs border border-slate-600">30 Distritos Atendidos</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+
+        {/* 6. modernización e Infraestructura & 7. Servicios */}
+        <div className="grid lg:grid-cols-12 gap-8 items-stretch">
+          
+          {/* Infraestructura (Imagen/Texto) */}
+          <div className="lg:col-span-8 bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm flex flex-col sm:flex-row group cursor-default">
+            <div className="sm:w-2/5 md:w-1/2 relative overflow-hidden h-64 sm:h-auto min-h-[300px]">
+              <img 
+                src="/palace-render.png" 
+                alt="Palacio de Justicia de Encarnación" 
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-slate-900/40 to-transparent"></div>
+              <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/60 backdrop-blur-md border border-white/10 text-white text-[11px] font-bold uppercase tracking-wider">
+                <Building2 size={12} />
+                Sede Central
+              </div>
+            </div>
+            
+            <div className="p-8 sm:w-3/5 md:w-1/2 flex flex-col justify-center">
+              <h3 className="text-2xl font-bold text-slate-900 mb-6">Modernización e Infraestructura</h3>
+              
+              <div className="space-y-6">
+                <div>
+                  <h4 className="flex items-center gap-2 font-bold text-blue-700 mb-2 text-sm">
+                    <Zap size={16} /> Expediente Judicial Electrónico
+                  </h4>
+                  <p className="text-slate-600 text-sm leading-relaxed">
+                    Funcionalidad total en fueros Civil, Comercial, Niñez, Adolescencia y Ejecución, eliminando el uso de papel y agilizando drásticamente los tiempos procesales.
+                  </p>
+                </div>
+                
+                <div className="pt-4 border-t border-slate-100">
+                  <h4 className="flex items-center gap-2 font-bold text-slate-800 mb-2 text-sm">
+                    <Building2 size={16} /> Palacio de Justicia (Encarnación)
+                  </h4>
+                  <p className="text-slate-600 text-sm leading-relaxed">
+                    Complejo de vanguardia de 19.268 m² integrando salas de juicios orales, biometría, clínica forense y atención permanente las 24 horas.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Servicios Ciudadanos */}
+          <div className="lg:col-span-4 flex flex-col gap-4">
+            <div className="bg-slate-900 text-white rounded-3xl p-8 flex-1 border border-slate-800 hover:border-slate-600 transition-colors">
+              <h3 className="text-lg font-bold mb-6">Servicios Ciudadanos</h3>
+              
+              <div className="space-y-5">
+                <div className="flex gap-4">
+                  <div className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center shrink-0">
+                    <Users size={18} className="text-blue-400" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-sm mb-1 text-slate-100">Mediación (Gratuita)</h4>
+                    <p className="text-xs text-slate-400 leading-relaxed">Resolución pacífica de conflictos priorizando el diálogo ciudadano.</p>
+                  </div>
+                </div>
+                
+                <div className="flex gap-4">
+                  <div className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center shrink-0">
+                    <FileCheck size={18} className="text-green-400" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-sm mb-1 text-slate-100">Facilitadores</h4>
+                    <p className="text-xs text-slate-400 leading-relaxed">Enlace sólido y comunitario entre la ciudadanía rural y el sistema.</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center shrink-0">
+                    <PhoneCall size={18} className="text-rose-400" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-sm mb-1 text-slate-100">Atención 24/7</h4>
+                    <p className="text-xs text-slate-400 leading-relaxed">Recepción ininterrumpida de denuncias críticas y protección urgente.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+
+      </div>
+    </section>
+  );
+};
+
+export default Institutional;

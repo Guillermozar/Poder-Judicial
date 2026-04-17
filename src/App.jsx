@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Hero, ServicesGrid, TransparencyBoard, DistrictsGuide, Footer } from './components';
+import { Header, Hero, Institutional, ServicesGrid, TransparencyBoard, DistrictsGuide, Footer } from './components';
 
 const App = () => {
   return (
@@ -7,6 +7,7 @@ const App = () => {
       <Header />
       <main>
         <Hero />
+        <Institutional />
         <ServicesGrid />
         <TransparencyBoard />
         <DistrictsGuide />
