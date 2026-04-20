@@ -1,11 +1,12 @@
 import React from 'react';
-import { Hero, ServicesGrid, TransparencyBoard, DistrictsGuide } from '../components';
+import { Hero, ServicesGrid, TransparencyBoard, DistrictsGuide, NewsSection } from '../components';
 
 const Home = () => {
   return (
     <>
       <Hero />
       <ServicesGrid />
+      <NewsSection />
       <TransparencyBoard />
       <DistrictsGuide />
     </>

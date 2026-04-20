@@ -1,0 +1,63 @@
+{
+  "header": {
+    "title": "MBOHAPYHA CIRCUNSCRIPCIÓN",
+    "subtitle": "TEKOJA MBO'EHAO • ITAPÚA",
+    "nav": {
+      "home": "Ñepyrũ",
+      "institutional": "Tekoaty",
+      "services": "Mba'eapopaha",
+      "transparency": "Myesakã",
+      "districts": "Táva"
+    },
+    "search_case": "EHECHA NE REMBIAPO",
+    "info_layer": {
+      "title": "Tekoja Itapúa",
+      "phone": "Pumbyry",
+      "hours": "Aravo",
+      "hours_value": "Arakõi - Arapoteĩ: 07:00 a 13:00",
+      "link_pj": "Tekoja Paraguay",
+      "link_csj": "Corte Suprema de Justicia"
+    }
+  },
+  "hero": {
+    "badge": "PORTAL OFICIAL",
+    "title": "Tekoja Pya'e ha Hesakãva Itapúa ykére",
+    "subtitle": "Eike opaite mba'eapopaha tekohape, mba'apo repy ha ambue mba'e ikatu eiporu Internet rupive ñemo'ã ha hendapápe.",
+    "btn_electronic_file": "EXPEDIENTE ELECTRÓNICO (Ñanduti)",
+    "btn_guide": "GUÍA DE TRÁMITES (Mba'éichapa ojejapo)"
+  },
+  "services": {
+    "judicial_soft": { "title": "Judisoft", "desc": "Ñanduti rupive mba'eapopaha hechapyrã" },
+    "criminal_records": { "title": "Amandaje", "desc": "Kuatia'atã ha Mombaryry" },
+    "judicial_fees": { "title": "Virupurã", "desc": "Viru poyhui" },
+    "mediation": { "title": "Ñehendu", "desc": "Apytu'ũ ñemongeta joja" },
+    "forms": { "title": "Kuatia", "desc": "Tekoja repy ha kuatiatî" },
+    "transparency": { "title": "Myesakã", "desc": "Léi 5282/14 - Marandu Opavavépe" }
+  },
+  "news": {
+    "badge_current": "Ag̃agua",
+    "title": "Marandu ha Pyahu",
+    "subtitle": "Eñangareko opa marandu apopaha hekoitépe ha mba'e pyahu tenonde gotyo.",
+    "btn_all": "Ehecha opaite marandu",
+    "tags": {
+      "innovation": "Pyahu",
+      "institutional": "Tekoaty",
+      "communique": "Marandu"
+    },
+    "read_more": "Emoñe'ẽve",
+    "items": {
+      "1": {
+        "title": "Mohenda pyahu Expediente Electrónico amóve tekohápe",
+        "excerpt": "Itapúa Circunscripción de la Justicia oguata tenonde digitalización tuichakue ijapopyre hendive."
+      },
+      "2": {
+        "title": "Magistrados pyahu asunción ã Circunscripción-pe",
+        "excerpt": "Juramento aravópe omomba'eguasu umi Jueces pyahu Corte Suprema omongu'e vaekue."
+      },
+      "3": {
+        "title": "Aravo ambue feria judicial pukukue",
+        "excerpt": "Marandu abogados ha opavavépe umi aravo de atención ojeporúva ko'ág̃a umi tekohápe."
+      }
+    }
+  }
+}

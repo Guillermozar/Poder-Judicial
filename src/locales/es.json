@@ -1,0 +1,63 @@
+{
+  "header": {
+    "title": "TERCERA CIRCUNSCRIPCIÓN",
+    "subtitle": "PODER JUDICIAL • ITAPÚA",
+    "nav": {
+      "home": "Inicio",
+      "institutional": "Institucional",
+      "services": "Servicios",
+      "transparency": "Transparencia",
+      "districts": "Distritos"
+    },
+    "search_case": "CONSULTAR CAUSA",
+    "info_layer": {
+      "title": "Poder Judicial Itapúa",
+      "phone": "Teléfono",
+      "hours": "Horario",
+      "hours_value": "Lun - Vie: 07:00 a 13:00",
+      "link_pj": "Poder Judicial Paraguay",
+      "link_csj": "Corte Suprema de Justicia"
+    }
+  },
+  "hero": {
+    "badge": "PORTAL OFICIAL",
+    "title": "Justicia Pronta y Transparente al servicio de Itapúa",
+    "subtitle": "Acceda a todos los servicios judiciales, consultas de expedientes y trámites administrativos de forma digital y segura.",
+    "btn_electronic_file": "EXPEDIENTE ELECTRÓNICO",
+    "btn_guide": "GUÍA DE TRÁMITES"
+  },
+  "services": {
+    "judicial_soft": { "title": "Judisoft", "desc": "Gestión de Expedientes Electrónicos" },
+    "criminal_records": { "title": "Antecedentes", "desc": "Informes y Certificados Penales" },
+    "judicial_fees": { "title": "Tasas Judiciales", "desc": "Liquidación y Pago de Tasas" },
+    "mediation": { "title": "Mediación", "desc": "Resolución Alternativa de Conflictos" },
+    "forms": { "title": "Formularios", "desc": "Gestión y Documentación Judicial" },
+    "transparency": { "title": "Transparencia", "desc": "Ley 5282/14 - Información Pública" }
+  },
+  "news": {
+    "badge_current": "Actualidad",
+    "title": "Noticias e Innovación",
+    "subtitle": "Manténgase informado con las últimas novedades, comunicados oficiales y avances institucionales.",
+    "btn_all": "Ver todas las publicaciones",
+    "tags": {
+      "innovation": "Innovación",
+      "institutional": "Institucional",
+      "communique": "Comunicado"
+    },
+    "read_more": "Leer más",
+    "items": {
+      "1": {
+        "title": "Implementación del Expediente Electrónico en nuevos juzgados",
+        "excerpt": "La Circunscripción Judicial de Itapúa avanza hacia la digitalización total con la exitosa habilitación del Tramite Judicial Electrónico."
+      },
+      "2": {
+        "title": "Asunción de nuevos Magistrados en la Circunscripción",
+        "excerpt": "En un solemne acto, prestaron juramento de rigor los nuevos Jueces de Paz y de Primera Instancia designados por la Corte Suprema."
+      },
+      "3": {
+        "title": "Horarios especiales durante la feria judicial",
+        "excerpt": "Se informa a los profesionales del derecho y a la ciudadanía en general sobre la atención en los juzgados de turno."
+      }
+    }
+  }
+}

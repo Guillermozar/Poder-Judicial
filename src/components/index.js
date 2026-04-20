@@ -6,3 +6,4 @@ export { default as ServicesGrid } from './sections/ServicesGrid';
 export { default as TransparencyBoard } from './sections/TransparencyBoard';
 export { default as DistrictsGuide } from './sections/DistrictsGuide';
 export { default as Institutional } from './sections/Institutional';
+export { default as NewsSection } from './sections/NewsSection';
