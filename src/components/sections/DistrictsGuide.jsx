@@ -66,13 +66,13 @@ const DistrictsGuide = () => {
             <h3 className="text-2xl font-bold text-slate-900 mb-2">Sede Central</h3>
             <p className="text-primary-700 font-semibold mb-4">Palacio de Justicia de Encarnación</p>
             <p className="text-slate-500 text-sm leading-relaxed mb-6">Luis María Argaña y Jóvenes por la Democracia. Concentrando los Tribunales de Apelación y Juzgados de Primera Instancia.</p>
-            <a href="https://maps.app.goo.gl/9U2fC4Rofb4VvT4W9" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm font-bold text-white bg-primary-900 hover:bg-primary-800 px-5 py-3 rounded-xl w-fit transition-colors">
+            <a href="https://maps.google.com/maps?vet=10CAAQoqAOahcKEwi4jIDSkP-TAxUAAAAAHQAAAAAQDg..i&sca_esv=d42760043365d063&pvq=OhYweDA6MHhkN2Y0OGJmMzIwNDA4Mjc0&fvr=1&cs=1&um=1&ie=UTF-8&fb=1&gl=py&sa=X&ftid=0x9457954e5bdafdbd:0xd7f48bf320408274" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm font-bold text-white bg-primary-900 hover:bg-primary-800 px-5 py-3 rounded-xl w-fit transition-colors">
               <ExternalLink size={16} /> Abrir en Maps
             </a>
           </div>
           <div className="md:w-2/3 h-80 md:h-auto min-h-[300px] rounded-3xl overflow-hidden bg-slate-100 relative">
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3539.0436444654924!2d-55.85960012461947!3d-27.342981576395353!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9457be2fa5c1df77%3A0xcfdacdc0a4baeed3!2sPalacio%20de%20Justicia%20Encarnaci%C3%B3n!5e0!3m2!1ses-419!2spy!4v1713000000000!5m2!1ses-419!2spy" 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3539.0436444654924!2d-55.85960012461947!3d-27.342981576395353!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9457954e5bdafdbd%3A0xd7f48bf320408274!2sPoder+Judicial!5e0!3m2!1ses-419!2spy!4v1713000000000!5m2!1ses-419!2spy" 
               className="absolute inset-0 w-full h-full border-0" 
               allowFullScreen="" 
               loading="lazy" 
