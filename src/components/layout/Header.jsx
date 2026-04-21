@@ -111,7 +111,7 @@ const Header = () => {
             className="mt-4 flex justify-center items-center gap-2 border border-slate-200 py-4 rounded-2xl font-bold text-lg hover:bg-slate-50 transition uppercase"
           >
             <Globe size={20} />
-            {i18n.language === 'es' ? 'VER EN GUARANÍ' : 'VER EN ESPAÑOL'}
+            {i18n.language === 'es' ? t('header.lang_gn') : t('header.lang_es')}
           </button>
         </div>
       )}

@@ -4,8 +4,11 @@ import {
   Users, ChevronRight, Landmark, FileCheck, PhoneCall, 
   Gavel, CheckCircle2, Navigation 
 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Institutional = () => {
+  const { t } = useTranslation();
+
   return (
     <section id="institucional" className="relative py-24 bg-white overflow-hidden scroll-mt-20">
       {/* Background Decor */}
@@ -20,13 +23,13 @@ const Institutional = () => {
         <div className="text-center max-w-3xl mx-auto mb-20 relative">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100/80 border border-slate-200 text-slate-600 text-sm font-medium mb-6 backdrop-blur-md shadow-sm">
             <Landmark size={16} className="text-blue-700" />
-            <span>Tercera Circunscripción Judicial</span>
+            <span>{t('institutional.presentation_badge')}</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-6">
-            Poder <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-slate-900">Judicial de Itapúa</span>
+            {t('institutional.presentation_title_p1')}<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-slate-900">{t('institutional.presentation_title_p2')}</span>
           </h2>
           <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-light">
-            Sede central en Encarnación, encargada de impartir justicia en el Departamento de Itapúa con autonomía, eficiencia y compromiso en nuestros 30 distritos.
+            {t('institutional.presentation_desc')}
           </p>
         </div>
 
@@ -37,9 +40,9 @@ const Institutional = () => {
             <div className="w-12 h-12 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
               <Navigation size={24} />
             </div>
-            <h3 className="text-lg font-bold text-slate-900 mb-3">Misión</h3>
+            <h3 className="text-lg font-bold text-slate-900 mb-3">{t('institutional.mission_title')}</h3>
             <p className="text-slate-600 text-sm leading-relaxed">
-              Administrar justicia oportuna que garantice derechos, contribuyendo a la convivencia pacífica y al desarrollo del país.
+              {t('institutional.mission_desc')}
             </p>
           </div>
 
@@ -48,9 +51,9 @@ const Institutional = () => {
             <div className="w-12 h-12 rounded-xl bg-slate-200 text-slate-700 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-300">
               <Eye size={24} />
             </div>
-            <h3 className="text-lg font-bold text-slate-900 mb-3">Visión</h3>
+            <h3 className="text-lg font-bold text-slate-900 mb-3">{t('institutional.vision_title')}</h3>
             <p className="text-slate-600 text-sm leading-relaxed">
-              Un Poder Judicial independiente, transparente y eficiente, que asegure el acceso equitativo a la justicia.
+              {t('institutional.vision_desc')}
             </p>
           </div>
 
@@ -64,32 +67,32 @@ const Institutional = () => {
                 <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center backdrop-blur-sm">
                   <Shield size={20} className="text-blue-300" />
                 </div>
-                <h3 className="text-lg font-bold">Valores Institucionales</h3>
+                <h3 className="text-lg font-bold">{t('institutional.values_title')}</h3>
               </div>
               <div className="grid sm:grid-cols-2 gap-6">
                 <div>
                   <h4 className="flex items-center gap-2 font-semibold text-blue-200 mb-1">
-                    <CheckCircle2 size={16} /> Independencia
+                    <CheckCircle2 size={16} /> {t('institutional.value_ind_title')}
                   </h4>
-                  <p className="text-slate-400 text-sm">Resoluciones basadas estrictamente en la ley, sin injerencias estructurales.</p>
+                  <p className="text-slate-400 text-sm">{t('institutional.value_ind_desc')}</p>
                 </div>
                 <div>
                   <h4 className="flex items-center gap-2 font-semibold text-blue-200 mb-1">
-                    <CheckCircle2 size={16} /> Imparcialidad
+                    <CheckCircle2 size={16} /> {t('institutional.value_imp_title')}
                   </h4>
-                  <p className="text-slate-400 text-sm">Trato rigurosamente equitativo para todas las partes en proceso.</p>
+                  <p className="text-slate-400 text-sm">{t('institutional.value_imp_desc')}</p>
                 </div>
                 <div>
                   <h4 className="flex items-center gap-2 font-semibold text-blue-200 mb-1">
-                    <CheckCircle2 size={16} /> Transparencia
+                    <CheckCircle2 size={16} /> {t('institutional.value_tra_title')}
                   </h4>
-                  <p className="text-slate-400 text-sm">Gestión pública totalmente abierta al control ciudadano y auditoría.</p>
+                  <p className="text-slate-400 text-sm">{t('institutional.value_tra_desc')}</p>
                 </div>
                 <div>
                   <h4 className="flex items-center gap-2 font-semibold text-blue-200 mb-1">
-                    <CheckCircle2 size={16} /> Eficiencia
+                    <CheckCircle2 size={16} /> {t('institutional.value_efi_title')}
                   </h4>
-                  <p className="text-slate-400 text-sm">Optimización constante de los tiempos procesales y recursos del Estado.</p>
+                  <p className="text-slate-400 text-sm">{t('institutional.value_efi_desc')}</p>
                 </div>
               </div>
             </div>
@@ -99,14 +102,14 @@ const Institutional = () => {
         {/* 3. Autoridades Vigentes */}
         <div className="mb-24">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">Autoridades de la Circunscripción</h2>
-            <p className="text-slate-500 max-w-2xl mx-auto">Gestión institucional amparada en un liderazgo enfocado en el fortalecimiento y la modernización de los procesos judiciales.</p>
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">{t('institutional.authorities_title')}</h2>
+            <p className="text-slate-500 max-w-2xl mx-auto">{t('institutional.authorities_desc')}</p>
           </div>
           
           <div className="grid lg:grid-cols-5 gap-8">
             {/* Superintendentes - Destacados */}
             <div className="lg:col-span-2 space-y-4">
-              <h3 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-6 pl-2 border-l-2 border-blue-600">Ministros Superintendentes</h3>
+              <h3 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-6 pl-2 border-l-2 border-blue-600">{t('institutional.authorities_ministers')}</h3>
               
               {[
                 { name: "Dra. María Carolina Llanes Ocampos" },
@@ -118,7 +121,7 @@ const Institutional = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-800 text-[15px]">{autoridad.name}</h4>
-                    <p className="text-xs text-blue-600 font-medium">Corte Suprema de Justicia</p>
+                    <p className="text-xs text-blue-600 font-medium">{t('institutional.authorities_csj')}</p>
                   </div>
                 </div>
               ))}
@@ -126,13 +129,13 @@ const Institutional = () => {
 
             {/* Consejo */}
             <div className="lg:col-span-3 space-y-4">
-              <h3 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-6 pl-2 border-l-2 border-slate-400">Consejo de Administración</h3>
+              <h3 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-6 pl-2 border-l-2 border-slate-400">{t('institutional.authorities_council')}</h3>
               
               <div className="grid sm:grid-cols-2 gap-4">
                 {[
-                  { title: "Presidente", name: "Abg. Miguel Ángel Vargas Díaz" },
-                  { title: "Vicepresidente 1°", name: "Abg. Nilsa Inés Monzón de Sarquis" },
-                  { title: "Vicepresidente 2°", name: "Abg. Claudia Andrea Scappini Parzajuk" }
+                  { title: t('institutional.council_pres'), name: "Abg. Miguel Ángel Vargas Díaz" },
+                  { title: t('institutional.council_vp1'), name: "Abg. Nilsa Inés Monzón de Sarquis" },
+                  { title: t('institutional.council_vp2'), name: "Abg. Claudia Andrea Scappini Parzajuk" }
                 ].map((member, idx) => (
                   <div key={idx} className={`p-5 rounded-xl border border-slate-100 bg-slate-50 transition-colors ${idx === 0 ? 'sm:col-span-2 bg-gradient-to-r from-slate-50 to-white shadow-sm border-b-2 border-b-slate-200' : ''}`}>
                     <p className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">{member.title}</p>
@@ -150,23 +153,23 @@ const Institutional = () => {
           {/* Tribunales */}
           <div>
             <div className="mb-8">
-              <h3 className="text-2xl font-bold text-slate-900 mb-2">Estructura Jurisdiccional</h3>
-              <p className="text-slate-500 text-sm">Tribunales de Apelación que aseguran la revisión técnica.</p>
+              <h3 className="text-2xl font-bold text-slate-900 mb-2">{t('institutional.struct_title')}</h3>
+              <p className="text-slate-500 text-sm">{t('institutional.struct_desc')}</p>
             </div>
             
             <div className="space-y-4">
               {/* Accordion-like cards */}
               <div className="bg-white border text-sm border-slate-200 rounded-xl p-5 hover:shadow-md transition-shadow">
                 <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3">
-                  <Gavel size={18} className="text-blue-600"/> Civil, Comercial y Laboral
+                  <Gavel size={18} className="text-blue-600"/> {t('institutional.struct_civil')}
                 </h4>
                 <div className="space-y-3">
                   <div>
-                    <span className="text-xs font-bold text-slate-400 uppercase">Primera Sala</span>
+                    <span className="text-xs font-bold text-slate-400 uppercase">{t('institutional.struct_civil_s1')}</span>
                     <p className="text-slate-700 mt-1">Lourdes Simón.</p>
                   </div>
                   <div>
-                    <span className="text-xs font-bold text-slate-400 uppercase">Segunda Sala</span>
+                    <span className="text-xs font-bold text-slate-400 uppercase">{t('institutional.struct_civil_s2')}</span>
                     <p className="text-slate-700 mt-1">César Cáceres, Camilo Cantero, Miguel Ángel Vargas.</p>
                   </div>
                 </div>
@@ -174,15 +177,15 @@ const Institutional = () => {
 
               <div className="bg-white border text-sm border-slate-200 rounded-xl p-5 hover:shadow-md transition-shadow">
                 <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3">
-                  <Gavel size={18} className="text-blue-600"/> Penal
+                  <Gavel size={18} className="text-blue-600"/> {t('institutional.struct_penal')}
                 </h4>
                 <div className="space-y-3">
                   <div>
-                    <span className="text-xs font-bold text-slate-400 uppercase">Primera Sala</span>
+                    <span className="text-xs font-bold text-slate-400 uppercase">{t('institutional.struct_penal_s1')}</span>
                     <p className="text-slate-700 mt-1">Sandra Palacios, Víctor Vega, Soledad Benítez.</p>
                   </div>
                   <div>
-                    <span className="text-xs font-bold text-slate-400 uppercase">Segunda Sala</span>
+                    <span className="text-xs font-bold text-slate-400 uppercase">{t('institutional.struct_penal_s2')}</span>
                     <p className="text-slate-700 mt-1">Bernardino Arzamendia, Claudia Scappini, Sonia Rojas.</p>
                   </div>
                 </div>
@@ -190,7 +193,7 @@ const Institutional = () => {
 
               <div className="bg-white border text-sm border-slate-200 rounded-xl p-5 hover:shadow-md transition-shadow">
                 <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3">
-                  <Gavel size={18} className="text-blue-600"/> Niñez y Adolescencia
+                  <Gavel size={18} className="text-blue-600"/> {t('institutional.struct_ninez')}
                 </h4>
                 <p className="text-slate-700">Augusto Paredes, Cristino Yeza Araújo, Nilsa Monzón de Sarquis.</p>
               </div>
@@ -200,8 +203,8 @@ const Institutional = () => {
           {/* Justicia de Paz */}
           <div>
             <div className="mb-8">
-              <h3 className="text-2xl font-bold text-slate-900 mb-2">Presencia Territorial</h3>
-              <p className="text-slate-500 text-sm">Cobertura total en los 30 distritos del departamento.</p>
+              <h3 className="text-2xl font-bold text-slate-900 mb-2">{t('institutional.presence_title')}</h3>
+              <p className="text-slate-500 text-sm">{t('institutional.presence_desc')}</p>
             </div>
             
             <div className="bg-slate-900 rounded-2xl p-1 shadow-xl">
@@ -213,7 +216,7 @@ const Institutional = () => {
                 
                 <h4 className="text-lg font-semibold text-white mb-6 flex items-center gap-2 relative z-10">
                   <Scale size={20} className="text-blue-400"/>
-                  Juzgados de Paz Destacados
+                  {t('institutional.presence_highlight')}
                 </h4>
 
                 <ul className="space-y-4 relative z-10 text-sm">
@@ -248,8 +251,8 @@ const Institutional = () => {
                 </ul>
                 
                 <div className="mt-8 pt-6 border-t border-slate-700 flex justify-between items-center relative z-10">
-                  <span className="text-slate-400 text-xs font-semibold uppercase tracking-wider">Cobertura Total</span>
-                  <span className="bg-slate-700/80 text-white font-bold px-3 py-1 rounded-md text-xs border border-slate-600">30 Distritos Atendidos</span>
+                  <span className="text-slate-400 text-xs font-semibold uppercase tracking-wider">{t('institutional.presence_total')}</span>
+                  <span className="bg-slate-700/80 text-white font-bold px-3 py-1 rounded-md text-xs border border-slate-600">{t('institutional.presence_districts')}</span>
                 </div>
               </div>
             </div>
@@ -271,29 +274,29 @@ const Institutional = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-slate-900/40 to-transparent"></div>
               <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/60 backdrop-blur-md border border-white/10 text-white text-[11px] font-bold uppercase tracking-wider">
                 <Building2 size={12} />
-                Sede Central
+                {t('institutional.infra_badge')}
               </div>
             </div>
             
             <div className="p-8 sm:w-3/5 md:w-1/2 flex flex-col justify-center">
-              <h3 className="text-2xl font-bold text-slate-900 mb-6">Modernización e Infraestructura</h3>
+              <h3 className="text-2xl font-bold text-slate-900 mb-6">{t('institutional.infra_title')}</h3>
               
               <div className="space-y-6">
                 <div>
                   <h4 className="flex items-center gap-2 font-bold text-blue-700 mb-2 text-sm">
-                    <Zap size={16} /> Expediente Judicial Electrónico
+                    <Zap size={16} /> {t('institutional.infra_exp')}
                   </h4>
                   <p className="text-slate-600 text-sm leading-relaxed">
-                    Funcionalidad total en fueros Civil, Comercial, Niñez, Adolescencia y Ejecución, eliminando el uso de papel y agilizando drásticamente los tiempos procesales.
+                    {t('institutional.infra_exp_desc')}
                   </p>
                 </div>
                 
                 <div className="pt-4 border-t border-slate-100">
                   <h4 className="flex items-center gap-2 font-bold text-slate-800 mb-2 text-sm">
-                    <Building2 size={16} /> Palacio de Justicia (Encarnación)
+                    <Building2 size={16} /> {t('institutional.infra_palace')}
                   </h4>
                   <p className="text-slate-600 text-sm leading-relaxed">
-                    Complejo de vanguardia de 19.268 m² integrando salas de juicios orales, biometría, clínica forense y atención permanente las 24 horas.
+                    {t('institutional.infra_palace_desc')}
                   </p>
                 </div>
               </div>
@@ -303,7 +306,7 @@ const Institutional = () => {
           {/* Servicios Ciudadanos */}
           <div className="lg:col-span-4 flex flex-col gap-4">
             <div className="bg-slate-900 text-white rounded-3xl p-8 flex-1 border border-slate-800 hover:border-slate-600 transition-colors">
-              <h3 className="text-lg font-bold mb-6">Servicios Ciudadanos</h3>
+              <h3 className="text-lg font-bold mb-6">{t('institutional.serv_title')}</h3>
               
               <div className="space-y-5">
                 <div className="flex gap-4">
@@ -311,8 +314,8 @@ const Institutional = () => {
                     <Users size={18} className="text-blue-400" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-sm mb-1 text-slate-100">Mediación (Gratuita)</h4>
-                    <p className="text-xs text-slate-400 leading-relaxed">Resolución pacífica de conflictos priorizando el diálogo ciudadano.</p>
+                    <h4 className="font-semibold text-sm mb-1 text-slate-100">{t('institutional.serv_med')}</h4>
+                    <p className="text-xs text-slate-400 leading-relaxed">{t('institutional.serv_med_desc')}</p>
                   </div>
                 </div>
                 
@@ -321,8 +324,8 @@ const Institutional = () => {
                     <FileCheck size={18} className="text-green-400" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-sm mb-1 text-slate-100">Facilitadores</h4>
-                    <p className="text-xs text-slate-400 leading-relaxed">Enlace sólido y comunitario entre la ciudadanía rural y el sistema.</p>
+                    <h4 className="font-semibold text-sm mb-1 text-slate-100">{t('institutional.serv_fac')}</h4>
+                    <p className="text-xs text-slate-400 leading-relaxed">{t('institutional.serv_fac_desc')}</p>
                   </div>
                 </div>
 
@@ -331,8 +334,8 @@ const Institutional = () => {
                     <PhoneCall size={18} className="text-rose-400" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-sm mb-1 text-slate-100">Atención 24/7</h4>
-                    <p className="text-xs text-slate-400 leading-relaxed">Recepción ininterrumpida de denuncias críticas y protección urgente.</p>
+                    <h4 className="font-semibold text-sm mb-1 text-slate-100">{t('institutional.serv_247')}</h4>
+                    <p className="text-xs text-slate-400 leading-relaxed">{t('institutional.serv_247_desc')}</p>
                   </div>
                 </div>
               </div>

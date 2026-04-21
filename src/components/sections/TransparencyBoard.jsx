@@ -1,11 +1,14 @@
 import React from 'react';
 import { Mail, ExternalLink, ShieldCheck, ChevronRight, User } from 'lucide-react';
+import { useTranslation, Trans } from 'react-i18next';
 
 const TransparencyBoard = () => {
+  const { t } = useTranslation();
+  
   const authorities = [
-    { name: "Mag. Miguel Ángel Vargas Díaz", role: "Presidente" },
-    { name: "Mag. Nilsa Inés Monzón", role: "Vicepresidente Primera" },
-    { name: "Mag. Claudia A. Scappini", role: "Vicepresidente Segunda" }
+    { name: "Mag. Miguel Ángel Vargas Díaz", role: t('transparency.pres') },
+    { name: "Mag. Nilsa Inés Monzón", role: t('transparency.vp1') },
+    { name: "Mag. Claudia A. Scappini", role: t('transparency.vp2') }
   ];
 
   return (
@@ -16,7 +19,7 @@ const TransparencyBoard = () => {
           <div className="lg:w-2/3">
             <div className="flex items-center gap-3 mb-8">
               <div className="h-8 w-2 bg-primary-900 rounded-full"></div>
-              <h2 className="text-3xl font-extrabold text-slate-800 uppercase tracking-tight">Consejo de Administración</h2>
+              <h2 className="text-3xl font-extrabold text-slate-800 uppercase tracking-tight">{t('transparency.council')}</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {authorities.map((a, i) => (
@@ -39,13 +42,13 @@ const TransparencyBoard = () => {
           <div className="lg:w-1/3 bg-primary-50 rounded-3xl p-8 border border-primary-100">
             <div className="flex items-center gap-3 mb-6">
               <ShieldCheck className="text-primary-900 w-8 h-8" />
-              <h2 className="text-2xl font-bold text-primary-900">Transparencia Activa</h2>
+              <h2 className="text-2xl font-bold text-primary-900">{t('transparency.active')}</h2>
             </div>
             <p className="text-slate-600 mb-6 text-sm leading-relaxed">
-              Cumplimiento estricto de la <strong>Ley N° 5282/14</strong>. Acceda a la nómina de funcionarios, presupuesto detallado y viáticos de la Tercera Circunscripción.
+              {t('transparency.desc1')}<strong>{t('transparency.desc_bold')}</strong>{t('transparency.desc2')}
             </p>
             <div className="space-y-3">
-              {['Nómina de Funcionarios', 'Ejecución Presupuestaria', 'Inventario de Bienes'].map((item) => (
+              {[t('transparency.list_func'), t('transparency.list_pres'), t('transparency.list_inv')].map((item) => (
                 <button key={item} className="w-full bg-white p-4 rounded-xl text-left flex justify-between items-center text-sm font-bold text-slate-700 hover:bg-primary-900 hover:text-white transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500">
                   {item} <ChevronRight size={16} />
                 </button>

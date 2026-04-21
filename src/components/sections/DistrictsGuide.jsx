@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Clock, ExternalLink } from 'lucide-react';
 import { Modal } from '..';
+import { useTranslation } from 'react-i18next';
 
 const DistrictsGuide = () => {
+  const { t } = useTranslation();
   const [selectedDistrict, setSelectedDistrict] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -48,10 +50,10 @@ const DistrictsGuide = () => {
     <section className="py-20 bg-slate-50 border-t border-slate-200" id="distritos">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Presencia en todo el Departamento</h2>
+          <h2 className="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">{t('districts.title')}</h2>
           <p className="text-slate-500 max-w-2xl mx-auto text-lg leading-relaxed">
-            Contamos con Juzgados de Paz y sedes judiciales en los 30 municipios de Itapúa para garantizar el acceso real a la justicia. 
-            <span className="block mt-2 font-semibold text-primary-700">Seleccione un distrito para ver detalles.</span>
+            {t('districts.desc1')}
+            <span className="block mt-2 font-semibold text-primary-700">{t('districts.desc2')}</span>
           </p>
         </div>
 
@@ -73,7 +75,7 @@ const DistrictsGuide = () => {
         <Modal 
           isOpen={isModalOpen} 
           onClose={() => setIsModalOpen(false)} 
-          title={`Sede Judicial: ${selectedDistrict.name}`}
+          title={`${t('districts.modal_title_prefix')} ${selectedDistrict.name}`}
         >
           <div className="space-y-6">
             <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 flex gap-4">
@@ -81,10 +83,10 @@ const DistrictsGuide = () => {
                 <MapPin size={24} />
               </div>
               <div>
-                <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Dirección</p>
+                <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">{t('districts.modal_address')}</p>
                 <p className="text-slate-700 font-semibold leading-relaxed">{selectedDistrict.address}</p>
                 <button className="text-primary-700 text-xs font-bold mt-2 flex items-center gap-1 hover:underline">
-                  <ExternalLink size={12} /> Ver en Google Maps
+                  <ExternalLink size={12} /> {t('districts.modal_google_maps')}
                 </button>
               </div>
             </div>
@@ -94,9 +96,9 @@ const DistrictsGuide = () => {
                 <Phone size={24} />
               </div>
               <div>
-                <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Contacto</p>
+                <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">{t('districts.modal_contact')}</p>
                 <p className="text-slate-700 font-semibold leading-relaxed">{selectedDistrict.phone}</p>
-                <p className="text-[10px] text-slate-400 font-medium">Llamada directa desde central</p>
+                <p className="text-[10px] text-slate-400 font-medium">{t('districts.modal_call_center')}</p>
               </div>
             </div>
 
@@ -105,9 +107,9 @@ const DistrictsGuide = () => {
                 <Clock size={24} />
               </div>
               <div>
-                <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Horario de Atención</p>
+                <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">{t('districts.modal_hours')}</p>
                 <p className="text-slate-700 font-semibold leading-relaxed">{selectedDistrict.hours}</p>
-                <p className="text-[10px] text-slate-400 font-medium">Lunes a Viernes</p>
+                <p className="text-[10px] text-slate-400 font-medium">{t('districts.modal_weekdays')}</p>
               </div>
             </div>
           </div>
