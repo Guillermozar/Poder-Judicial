@@ -15,6 +15,54 @@
 
 @layer base {
   body {
-    @apply antialiased text-slate-900 bg-slate-50;
+    @apply antialiased text-slate-900 bg-slate-50 transition-colors duration-300;
   }
+}
+
+/* Accessibility settings */
+html.font-size-large { font-size: 110%; }
+html.font-size-xlarge { font-size: 125%; }
+
+html.high-contrast body {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+html.high-contrast .bg-white, 
+html.high-contrast .bg-slate-50, 
+html.high-contrast .bg-primary-900, 
+html.high-contrast .bg-primary-800, 
+html.high-contrast .bg-primary-50,
+html.high-contrast header,
+html.high-contrast footer,
+html.high-contrast section {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-color: #ffff00 !important;
+}
+
+html.high-contrast .text-primary-900,
+html.high-contrast .text-primary-800,
+html.high-contrast .text-primary-700,
+html.high-contrast .text-slate-900,
+html.high-contrast .text-slate-800,
+html.high-contrast .text-slate-700,
+html.high-contrast .text-slate-600,
+html.high-contrast .text-slate-500,
+html.high-contrast h1, html.high-contrast h2, html.high-contrast h3, html.high-contrast p, html.high-contrast span {
+  color: #ffff00 !important;
+}
+
+html.high-contrast a, 
+html.high-contrast button {
+  color: #ffff00 !important;
+  border: 2px solid #ffff00 !important;
+  background-color: transparent !important;
+}
+
+html.font-dyslexic * {
+  font-family: "Comic Sans MS", "Comic Sans", "Lexend", sans-serif !important;
+  letter-spacing: 0.05em !important;
+  word-spacing: 0.1em !important;
+  line-height: 1.6 !important;
 }

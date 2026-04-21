@@ -11,11 +11,38 @@ const Header = () => {
   const [isNearBottom, setIsNearBottom] = useState(false);
   const location = useLocation();
 
+  // Search State
+  const [searchQuery, setSearchQuery] = useState('');
+  const [isSearchExpanded, setIsSearchExpanded] = useState(false);
+  const [searchResults, setSearchResults] = useState([]);
+
+  const searchableItems = [
+    { title: t('header.nav.home'), path: '/' },
+    { title: t('header.nav.institutional'), path: '/institucional' },
+    { title: t('header.nav.services'), path: '/#servicios' },
+    { title: t('header.nav.transparency'), path: '/#transparencia' },
+    { title: t('header.nav.districts'), path: '/#distritos' },
+    { title: 'Expediente Electrónico Judicial', path: 'https://apps.csj.gov.py/login', external: true },
+    { title: 'Corte Suprema', path: 'https://www.pj.gov.py', external: true }
+  ];
+
+  const handleSearch = (e) => {
+    const query = e.target.value;
+    setSearchQuery(query);
+    if (query.trim().length > 1) {
+      const results = searchableItems.filter(item => 
+        item.title.toLowerCase().includes(query.toLowerCase())
+      );
+      setSearchResults(results);
+    } else {
+      setSearchResults([]);
+    }
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
       
-      // Detectar si estamos cerca del fondo de la página
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
@@ -46,8 +73,6 @@ const Header = () => {
 
   return (
     <>
-
-
       <header className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-lg py-2' : 'bg-white/95 py-4'}`}>
         <div className="container mx-auto px-4 flex justify-between items-center">
           <Link to="/" className="flex items-center gap-3">
@@ -73,9 +98,61 @@ const Header = () => {
                 </Link>
               );
             })}
-            <button className="bg-primary-900 text-white px-6 py-2 rounded-full font-bold text-sm hover:focus:ring-2 focus:ring-primary-500 hover:bg-primary-800 transition-all flex items-center gap-2">
-              <Search size={16} /> {t('header.search_case')}
-            </button>
+            
+            {/* Global Search Desktop */}
+            <div className="relative">
+              {isSearchExpanded ? (
+                <div className="flex items-center bg-white border-2 border-primary-500 rounded-full px-3 py-1.5 w-64 md:w-80 transition-all shadow-sm">
+                  <Search size={16} className="text-primary-500 mr-2" />
+                  <input 
+                    autoFocus
+                    type="text" 
+                    placeholder="Buscar en el portal..." 
+                    className="bg-transparent border-none outline-none text-sm w-full font-semibold text-slate-700"
+                    value={searchQuery}
+                    onChange={handleSearch}
+                    onBlur={() => setTimeout(() => setIsSearchExpanded(false), 200)}
+                  />
+                  <button onClick={() => {setIsSearchExpanded(false); setSearchQuery('')}} className="text-slate-400 hover:text-slate-800">
+                    <X size={16} />
+                  </button>
+                </div>
+              ) : (
+                <button 
+                  onClick={() => setIsSearchExpanded(true)}
+                  className="bg-primary-900 text-white px-6 py-2 rounded-full font-bold text-sm hover:ring-2 focus:ring-primary-500 hover:bg-primary-800 transition-all flex items-center gap-2"
+                >
+                  <Search size={16} /> {t('header.search_case')}
+                </button>
+              )}
+
+              {isSearchExpanded && searchQuery.length > 1 && (
+                <div className="absolute top-full mt-2 w-full bg-white rounded-xl shadow-2xl border border-slate-100 overflow-hidden z-50">
+                  {searchResults.length > 0 ? (
+                    <ul>
+                      {searchResults.map((res, i) => (
+                        <li key={i}>
+                          {res.external ? (
+                            <a href={res.path} target="_blank" rel="noreferrer" className="block px-4 py-3 text-sm hover:bg-slate-50 border-b border-slate-50 last:border-0 font-semibold text-slate-700">
+                              <Search size={12} className="inline mr-2 text-slate-400" /> {res.title}
+                            </a>
+                          ) : (
+                            <Link to={res.path} className="block px-4 py-3 text-sm hover:bg-slate-50 border-b border-slate-50 last:border-0 font-semibold text-slate-700" onClick={() => setIsSearchExpanded(false)}>
+                              <Search size={12} className="inline mr-2 text-slate-400" /> {res.title}
+                            </Link>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <div className="px-4 py-4 text-sm text-slate-500 text-center font-medium">
+                      No se encontraron resultados.
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+
             <button 
               onClick={toggleLanguage} 
               className="flex items-center gap-1.5 ml-1 px-3 py-1.5 border border-slate-200 hover:border-primary-500 rounded-full text-xs font-bold text-slate-600 hover:text-primary-700 transition-all uppercase tracking-wider bg-white shadow-sm"
@@ -92,12 +169,50 @@ const Header = () => {
         </div>
       </header>
 
+      {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="fixed inset-0 z-[60] bg-white flex flex-col p-6 animate-in slide-in-from-right duration-300">
-          <div className="flex justify-between items-center mb-10">
+          <div className="flex justify-between items-center mb-8">
             <Scale className="text-primary-900 w-10 h-10" />
             <button onClick={() => setIsMenuOpen(false)}><X size={32} /></button>
           </div>
+
+          <div className="relative mb-8">
+            <div className="flex items-center bg-slate-100 rounded-xl px-4 py-3 w-full">
+              <Search size={20} className="text-slate-400 mr-3" />
+              <input 
+                type="text" 
+                placeholder={t('header.search_case')} 
+                className="bg-transparent border-none outline-none text-base w-full font-semibold text-slate-700"
+                value={searchQuery}
+                onChange={handleSearch}
+              />
+            </div>
+            {searchQuery.length > 1 && (
+              <div className="absolute top-full mt-2 w-full bg-white rounded-xl shadow-xl border border-slate-100 overflow-hidden z-20">
+                {searchResults.length > 0 ? (
+                  <ul>
+                    {searchResults.map((res, i) => (
+                      <li key={i}>
+                        {res.external ? (
+                          <a href={res.path} target="_blank" rel="noreferrer" className="block px-4 py-3 text-base border-b border-slate-50 font-semibold text-slate-700">
+                            {res.title}
+                          </a>
+                        ) : (
+                          <Link to={res.path} className="block px-4 py-3 text-base border-b border-slate-50 font-semibold text-slate-700" onClick={() => {setIsMenuOpen(false); setSearchQuery('')}}>
+                            {res.title}
+                          </Link>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <div className="px-4 py-4 text-sm text-slate-500 text-center font-medium">Sin resultados.</div>
+                )}
+              </div>
+            )}
+          </div>
+
           <div className="flex flex-col gap-6 text-2xl font-bold text-slate-800">
             {navItems.map((item) => (
               <Link key={item.name} to={item.path} className="text-left hover:text-primary-700 transition" onClick={() => setIsMenuOpen(false)}>
@@ -105,10 +220,10 @@ const Header = () => {
               </Link>
             ))}
           </div>
-          <button className="mt-auto bg-primary-900 text-white py-4 rounded-2xl font-bold text-lg hover:bg-primary-800 transition">{t('header.search_case')}</button>
+          
           <button 
             onClick={() => { toggleLanguage(); setIsMenuOpen(false); }} 
-            className="mt-4 flex justify-center items-center gap-2 border border-slate-200 py-4 rounded-2xl font-bold text-lg hover:bg-slate-50 transition uppercase"
+            className="mt-auto mb-4 flex justify-center items-center gap-2 border border-slate-200 py-4 rounded-2xl font-bold text-lg hover:bg-slate-50 transition uppercase"
           >
             <Globe size={20} />
             {i18n.language === 'es' ? t('header.lang_gn') : t('header.lang_es')}
@@ -116,8 +231,8 @@ const Header = () => {
         </div>
       )}
 
-      {/* Botón flotante de información */}
-      <div className={`fixed bottom-6 right-6 z-50 transition-all duration-500 ${isNearBottom ? 'opacity-0 pointer-events-none translate-y-10' : 'opacity-100'}`}>
+      {/* Info Flotante */}
+      <div className={`fixed bottom-6 right-6 z-40 transition-all duration-500 ${isNearBottom ? 'opacity-0 pointer-events-none translate-y-10' : 'opacity-100'}`}>
         {showInfo && (
           <div className="absolute bottom-full right-0 mb-4 bg-white text-slate-800 p-5 rounded-2xl shadow-2xl w-72 animate-in slide-in-from-bottom-2 duration-200 border border-slate-100">
             <div className="flex justify-between items-center mb-4">

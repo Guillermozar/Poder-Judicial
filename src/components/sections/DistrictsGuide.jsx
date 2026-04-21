@@ -57,7 +57,32 @@ const DistrictsGuide = () => {
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-3">
+        {/* Mapa Sede Central */}
+        <div className="max-w-5xl mx-auto mb-16 bg-white p-3 rounded-[2rem] shadow-xl border border-slate-100 flex flex-col md:flex-row gap-4">
+          <div className="md:w-1/3 p-6 flex flex-col justify-center">
+            <div className="bg-primary-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 text-primary-900">
+              <MapPin size={28} />
+            </div>
+            <h3 className="text-2xl font-bold text-slate-900 mb-2">Sede Central</h3>
+            <p className="text-primary-700 font-semibold mb-4">Palacio de Justicia de Encarnación</p>
+            <p className="text-slate-500 text-sm leading-relaxed mb-6">Luis María Argaña y Jóvenes por la Democracia. Concentrando los Tribunales de Apelación y Juzgados de Primera Instancia.</p>
+            <a href="https://maps.app.goo.gl/9U2fC4Rofb4VvT4W9" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm font-bold text-white bg-primary-900 hover:bg-primary-800 px-5 py-3 rounded-xl w-fit transition-colors">
+              <ExternalLink size={16} /> Abrir en Maps
+            </a>
+          </div>
+          <div className="md:w-2/3 h-80 md:h-auto min-h-[300px] rounded-3xl overflow-hidden bg-slate-100 relative">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3539.0436444654924!2d-55.85960012461947!3d-27.342981576395353!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9457be2fa5c1df77%3A0xcfdacdc0a4baeed3!2sPalacio%20de%20Justicia%20Encarnaci%C3%B3n!5e0!3m2!1ses-419!2spy!4v1713000000000!5m2!1ses-419!2spy" 
+              className="absolute inset-0 w-full h-full border-0" 
+              allowFullScreen="" 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Mapa Sede Central">
+            </iframe>
+          </div>
+        </div>
+
+        <div className="flex flex-wrap justify-center gap-3 max-w-5xl mx-auto">
           {districts.map((d, i) => (
             <button 
               key={i} 
@@ -77,40 +102,49 @@ const DistrictsGuide = () => {
           onClose={() => setIsModalOpen(false)} 
           title={`${t('districts.modal_title_prefix')} ${selectedDistrict.name}`}
         >
-          <div className="space-y-6">
-            <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 flex gap-4">
-              <div className="bg-primary-900/10 text-primary-900 p-3 rounded-xl h-fit">
-                <MapPin size={24} />
+          <div className="space-y-4">
+            <div className="grid grid-cols-1 gap-4">
+              <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 flex gap-4">
+                <div className="bg-primary-900/10 text-primary-900 p-3 rounded-xl h-fit">
+                  <MapPin size={24} />
+                </div>
+                <div>
+                  <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">{t('districts.modal_address')}</p>
+                  <p className="text-slate-700 font-semibold leading-relaxed">{selectedDistrict.address}</p>
+                  <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(selectedDistrict.address + ', ' + selectedDistrict.name + ', Itapúa, Paraguay')}`} target="_blank" rel="noreferrer" className="text-primary-700 text-xs font-bold mt-2 flex items-center gap-1 hover:underline w-fit">
+                    <ExternalLink size={12} /> {t('districts.modal_google_maps')}
+                  </a>
+                </div>
               </div>
-              <div>
-                <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">{t('districts.modal_address')}</p>
-                <p className="text-slate-700 font-semibold leading-relaxed">{selectedDistrict.address}</p>
-                <button className="text-primary-700 text-xs font-bold mt-2 flex items-center gap-1 hover:underline">
-                  <ExternalLink size={12} /> {t('districts.modal_google_maps')}
-                </button>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 flex flex-col gap-2">
+                  <div className="flex items-center gap-2 mb-1 text-slate-400 uppercase tracking-widest text-xs font-bold">
+                    <Phone size={14} /> {t('districts.modal_contact')}
+                  </div>
+                  <p className="text-slate-700 font-semibold">{selectedDistrict.phone}</p>
+                </div>
+
+                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 flex flex-col gap-2">
+                  <div className="flex items-center gap-2 mb-1 text-slate-400 uppercase tracking-widest text-xs font-bold">
+                    <Clock size={14} /> {t('districts.modal_hours')}
+                  </div>
+                  <p className="text-slate-700 font-semibold">{selectedDistrict.hours}</p>
+                </div>
               </div>
             </div>
 
-            <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 flex gap-4">
-              <div className="bg-emerald-900/10 text-emerald-900 p-3 rounded-xl h-fit">
-                <Phone size={24} />
-              </div>
-              <div>
-                <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">{t('districts.modal_contact')}</p>
-                <p className="text-slate-700 font-semibold leading-relaxed">{selectedDistrict.phone}</p>
-                <p className="text-[10px] text-slate-400 font-medium">{t('districts.modal_call_center')}</p>
-              </div>
-            </div>
-
-            <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 flex gap-4">
-              <div className="bg-amber-900/10 text-amber-900 p-3 rounded-xl h-fit">
-                <Clock size={24} />
-              </div>
-              <div>
-                <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">{t('districts.modal_hours')}</p>
-                <p className="text-slate-700 font-semibold leading-relaxed">{selectedDistrict.hours}</p>
-                <p className="text-[10px] text-slate-400 font-medium">{t('districts.modal_weekdays')}</p>
-              </div>
+            {/* Mapa Embebido del Distrito */}
+            <div className="w-full h-48 rounded-xl overflow-hidden border border-slate-200 mt-2">
+              <iframe 
+                src={`https://www.google.com/maps?q=${encodeURIComponent(selectedDistrict.address + ', ' + selectedDistrict.name + ', Itapúa, Paraguay')}&output=embed`}
+                width="100%" 
+                height="100%" 
+                style={{border:0}} 
+                allowFullScreen="" 
+                loading="lazy"
+                title={`Mapa de ${selectedDistrict.name}`}>
+              </iframe>
             </div>
           </div>
         </Modal>

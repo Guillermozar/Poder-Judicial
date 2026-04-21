@@ -1,4 +1,6 @@
 export { default as Modal } from './ui/Modal';
+export { default as PageLoader } from './ui/PageLoader';
+export { default as AccessibilityPanel } from './ui/AccessibilityPanel';
 export { default as Header } from './layout/Header';
 export { default as Footer } from './layout/Footer';
 export { default as Hero } from './sections/Hero';
