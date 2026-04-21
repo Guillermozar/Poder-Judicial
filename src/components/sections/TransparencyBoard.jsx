@@ -2,13 +2,18 @@ import React from 'react';
 import { Mail, ExternalLink, ShieldCheck, ChevronRight, User } from 'lucide-react';
 import { useTranslation, Trans } from 'react-i18next';
 
+// Magistrates photos
+import vargasImg from '../../assets/vargas.jpg';
+import monzonImg from '../../assets/monzon.jpg';
+import scappiniImg from '../../assets/scappini.jpg';
+
 const TransparencyBoard = () => {
   const { t } = useTranslation();
   
   const authorities = [
-    { name: "Mag. Miguel Ángel Vargas Díaz", role: t('transparency.pres') },
-    { name: "Mag. Nilsa Inés Monzón", role: t('transparency.vp1') },
-    { name: "Mag. Claudia A. Scappini", role: t('transparency.vp2') }
+    { name: "Mag. Miguel Ángel Vargas Díaz", role: t('transparency.pres'), image: vargasImg },
+    { name: "Mag. Nilsa Inés Monzón", role: t('transparency.vp1'), image: monzonImg },
+    { name: "Mag. Claudia A. Scappini", role: t('transparency.vp2'), image: scappiniImg }
   ];
 
   return (
@@ -23,15 +28,19 @@ const TransparencyBoard = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {authorities.map((a, i) => (
-                <div key={i} className="bg-slate-50 rounded-3xl p-6 border border-slate-100 text-center hover:shadow-lg transition-shadow">
-                  <div className="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-white shadow-md bg-primary-100 flex items-center justify-center text-primary-600">
-                    <User size={48} strokeWidth={1.5} />
+                <div key={i} className="bg-slate-50 rounded-3xl p-6 border border-slate-100 text-center hover:shadow-lg transition-shadow group">
+                  <div className="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-white shadow-md bg-primary-100 flex items-center justify-center text-primary-600 overflow-hidden">
+                    {a.image ? (
+                      <img src={a.image} alt={a.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                    ) : (
+                      <User size={48} strokeWidth={1.5} />
+                    )}
                   </div>
-                  <h4 className="font-bold text-slate-900 leading-tight">{a.name}</h4>
+                  <h4 className="font-bold text-slate-900 leading-tight min-h-[3rem] flex items-center justify-center">{a.name}</h4>
                   <p className="text-sm text-primary-700 font-semibold mt-1">{a.role}</p>
                   <div className="mt-4 pt-4 border-t border-slate-200 flex justify-center gap-3">
-                    <button className="text-slate-400 hover:text-primary-600 focus:outline-none focus:text-primary-600" aria-label="Enviar correo"><Mail size={16} /></button>
-                    <button className="text-slate-400 hover:text-primary-600 focus:outline-none focus:text-primary-600" aria-label="Abrir perfil"><ExternalLink size={16} /></button>
+                    <button className="text-slate-400 hover:text-primary-600 focus:outline-none focus:text-primary-600 transition-colors" aria-label="Enviar correo"><Mail size={16} /></button>
+                    <button className="text-slate-400 hover:text-primary-600 focus:outline-none focus:text-primary-600 transition-colors" aria-label="Abrir perfil"><ExternalLink size={16} /></button>
                   </div>
                 </div>
               ))}
