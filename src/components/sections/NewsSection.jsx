@@ -1,10 +1,14 @@
-import React from 'react';
-import { ArrowRight, Calendar, Tag } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { ArrowRight, Calendar, Tag, Loader2 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { supabase } from '../../lib/supabase';
 
 const NewsSection = () => {
   const { t } = useTranslation();
-  const news = [
+  const [newsItems, setNewsItems] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const defaultNews = [
     {
       id: 1,
       tag: t('news.tags.innovation'),
@@ -34,6 +38,42 @@ const NewsSection = () => {
     }
   ];
 
+  useEffect(() => {
+    async function fetchNews() {
+      try {
+        const { data, error } = await supabase
+          .from('news')
+          .select('*')
+          .order('created_at', { ascending: false })
+          .limit(3);
+
+        if (error) throw error;
+
+        if (data && data.length > 0) {
+          const formattedData = data.map(item => ({
+            id: item.id,
+            tag: item.tag || t('news.tags.institutional'),
+            tagColor: item.tag_color || "bg-blue-100 text-blue-700",
+            title: item.title,
+            date: new Date(item.created_at).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' }),
+            excerpt: item.excerpt,
+            image: item.image_url || "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=800"
+          }));
+          setNewsItems(formattedData);
+        } else {
+          setNewsItems(defaultNews);
+        }
+      } catch (error) {
+        console.error("Error fetching news from Supabase:", error);
+        setNewsItems(defaultNews);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchNews();
+  }, [t]);
+
   return (
     <section className="py-24 bg-white relative z-10 border-t border-slate-100">
       <div className="container mx-auto px-4">
@@ -56,9 +96,14 @@ const NewsSection = () => {
           </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {news.map((item) => (
-            <article 
+        {loading ? (
+          <div className="flex justify-center items-center py-20 w-full">
+            <Loader2 className="w-10 h-10 text-primary-500 animate-spin" />
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {newsItems.map((item) => (
+              <article
               key={item.id} 
               className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-primary-900/5 transition-all duration-300 border border-slate-100 group flex flex-col cursor-pointer hover:-translate-y-2"
             >
@@ -93,8 +138,9 @@ const NewsSection = () => {
                 </p>
               </div>
             </article>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

@@ -19,8 +19,8 @@ const Header = () => {
   const searchableItems = [
     { title: t('header.nav.home'), path: '/' },
     { title: t('header.nav.institutional'), path: '/institucional' },
-    { title: t('header.nav.services'), path: '/#servicios' },
-    { title: t('header.nav.transparency'), path: '/#transparencia' },
+    // { title: t('header.nav.services'), path: '/#servicios' },
+    // { title: t('header.nav.transparency'), path: '/#transparencia' },
     { title: t('header.nav.districts'), path: '/#distritos' },
     { title: 'Expediente Electrónico Judicial', path: 'https://apps.csj.gov.py/login', external: true },
     { title: 'Corte Suprema', path: 'https://www.pj.gov.py', external: true }
@@ -61,8 +61,8 @@ const Header = () => {
   const navItems = [
     { name: t('header.nav.home'), path: '/' },
     { name: t('header.nav.institutional'), path: '/institucional' },
-    { name: t('header.nav.services'), path: '/#servicios' },
-    { name: t('header.nav.transparency'), path: '/#transparencia' },
+    // { name: t('header.nav.services'), path: '/#servicios' },
+    // { name: t('header.nav.transparency'), path: '/#transparencia' },
     { name: t('header.nav.districts'), path: '/#distritos' }
   ];
 
@@ -100,6 +100,7 @@ const Header = () => {
             })}
             
             {/* Global Search Desktop */}
+            {/* Global Search Desktop - Oculto temporalmente
             <div className="relative">
               {isSearchExpanded ? (
                 <div className="flex items-center bg-white border-2 border-primary-500 rounded-full px-3 py-1.5 w-64 md:w-80 transition-all shadow-sm">
@@ -152,6 +153,7 @@ const Header = () => {
                 </div>
               )}
             </div>
+            */}
 
             <button 
               onClick={toggleLanguage} 
@@ -177,6 +179,7 @@ const Header = () => {
             <button onClick={() => setIsMenuOpen(false)}><X size={32} /></button>
           </div>
 
+          {/* Mobile Search - Oculto temporalmente
           <div className="relative mb-8">
             <div className="flex items-center bg-slate-100 rounded-xl px-4 py-3 w-full">
               <Search size={20} className="text-slate-400 mr-3" />
@@ -212,6 +215,7 @@ const Header = () => {
               </div>
             )}
           </div>
+          */}
 
           <div className="flex flex-col gap-6 text-2xl font-bold text-slate-800">
             {navItems.map((item) => (

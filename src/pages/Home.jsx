@@ -5,9 +5,9 @@ const Home = () => {
   return (
     <>
       <Hero />
-      <ServicesGrid />
+      {/* <ServicesGrid /> */}
       <NewsSection />
-      <TransparencyBoard />
+      {/* <TransparencyBoard /> */}
       <DistrictsGuide />
     </>
   );

@@ -5,13 +5,16 @@ import './index.css'
 import './i18n'
 import App from './App.jsx'
 import { AccessibilityProvider } from './context/AccessibilityContext'
+import { AuthProvider } from './context/AuthContext'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AccessibilityProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <AuthProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </AuthProvider>
     </AccessibilityProvider>
   </StrictMode>,
 )
