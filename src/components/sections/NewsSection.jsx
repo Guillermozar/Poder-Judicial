@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { ArrowRight, Calendar, Tag, Loader2 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../../lib/supabase';
@@ -8,7 +8,7 @@ const NewsSection = () => {
   const [newsItems, setNewsItems] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const defaultNews = [
+  const defaultNews = useMemo(() => [
     {
       id: 1,
       tag: t('news.tags.innovation'),
@@ -36,7 +36,7 @@ const NewsSection = () => {
       excerpt: t('news.items.3.excerpt'),
       image: "https://images.unsplash.com/photo-1575505586569-646b2ca898fc?auto=format&fit=crop&q=80&w=800"
     }
-  ];
+  ], [t]);
 
   useEffect(() => {
     async function fetchNews() {
@@ -72,7 +72,7 @@ const NewsSection = () => {
     }
 
     fetchNews();
-  }, [t]);
+  }, [t, defaultNews]);
 
   return (
     <section className="py-24 bg-white relative z-10 border-t border-slate-100">
@@ -112,6 +112,7 @@ const NewsSection = () => {
                 <img 
                   src={item.image} 
                   alt={item.title} 
+                  loading="lazy"
                   className="w-full h-full object-cover transform scale-105 group-hover:scale-110 transition-transform duration-700 ease-in-out"
                 />
                 <div className="absolute top-5 left-5 z-20">

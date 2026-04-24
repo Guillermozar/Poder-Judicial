@@ -269,6 +269,7 @@ const Institutional = () => {
               <img 
                 src="/palace-render.png" 
                 alt="Palacio de Justicia de Encarnación" 
+                loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-slate-900/40 to-transparent"></div>

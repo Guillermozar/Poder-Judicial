@@ -20,7 +20,7 @@ const Login = () => {
       await login(email, password);
       // Login exitoso, enviar al gestor
       navigate('/comunicaciones/gestor');
-    } catch (error) {
+    } catch {
       setAuthError('Correo o contraseña incorrectos. Verifica tus credenciales.');
     } finally {
       setIsLoading(false);

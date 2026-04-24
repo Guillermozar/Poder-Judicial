@@ -11,11 +11,6 @@ const Header = () => {
   const [isNearBottom, setIsNearBottom] = useState(false);
   const location = useLocation();
 
-  // Search State
-  const [searchQuery, setSearchQuery] = useState('');
-  const [isSearchExpanded, setIsSearchExpanded] = useState(false);
-  const [searchResults, setSearchResults] = useState([]);
-
   const searchableItems = [
     { title: t('header.nav.home'), path: '/' },
     { title: t('header.nav.institutional'), path: '/institucional' },
@@ -26,18 +21,6 @@ const Header = () => {
     { title: 'Corte Suprema', path: 'https://www.pj.gov.py', external: true }
   ];
 
-  const handleSearch = (e) => {
-    const query = e.target.value;
-    setSearchQuery(query);
-    if (query.trim().length > 1) {
-      const results = searchableItems.filter(item => 
-        item.title.toLowerCase().includes(query.toLowerCase())
-      );
-      setSearchResults(results);
-    } else {
-      setSearchResults([]);
-    }
-  };
 
   useEffect(() => {
     const handleScroll = () => {
