@@ -26,9 +26,9 @@ const TransparencyBoard = () => {
               <div className="h-8 w-2 bg-primary-900 rounded-full"></div>
               <h2 className="text-3xl font-extrabold text-slate-800 uppercase tracking-tight">{t('transparency.council')}</h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {authorities.map((a, i) => (
-                <div key={i} className="bg-slate-50 rounded-3xl p-8 border border-slate-100 text-center hover:shadow-lg transition-all group hover:-translate-y-1">
+                <div key={i} className={`bg-slate-50 rounded-3xl p-8 border border-slate-100 text-center hover:shadow-lg transition-all group hover:-translate-y-1 ${i === 0 ? 'md:col-span-2 md:w-1/2 md:mx-auto' : ''}`}>
                   <div className="w-28 h-28 rounded-full mx-auto mb-6 border-4 border-white shadow-md bg-primary-100 flex items-center justify-center text-primary-600 overflow-hidden">
                     {a.image ? (
                       <img src={a.image} alt={a.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
