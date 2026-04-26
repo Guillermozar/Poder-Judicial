@@ -140,7 +140,7 @@ const Institutional = () => {
                   { title: t('institutional.council_vp1'), name: "Abg. Nilsa Inés Monzón de Sarquis", img: monzonImg },
                   { title: t('institutional.council_vp2'), name: "Abg. Claudia Andrea Scappini Parzajuk", img: scappiniImg }
                 ].map((member, idx) => (
-                  <div key={idx} className={`p-5 rounded-xl border border-slate-100 bg-slate-50 flex items-center gap-4 transition-colors ${idx === 0 ? 'sm:col-span-2 bg-gradient-to-r from-slate-50 to-white shadow-sm border-b-2 border-b-slate-200' : ''}`}>
+                  <div key={idx} className={`p-5 rounded-xl border border-slate-100 bg-slate-50 flex items-center gap-4 transition-colors ${idx === 0 ? 'sm:col-span-2 sm:w-4/5 sm:mx-auto bg-gradient-to-r from-slate-50 to-white shadow-sm border-b-2 border-b-slate-200' : ''}`}>
                     <div className="w-16 h-16 rounded-full overflow-hidden shrink-0 border-2 border-white shadow-sm">
                       <img src={member.img} alt={member.name} className="w-full h-full object-cover" />
                     </div>
