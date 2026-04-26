@@ -57,29 +57,22 @@ const DistrictsGuide = () => {
           </p>
         </div>
 
-        {/* Mapa Sede Central */}
-        <div className="max-w-5xl mx-auto mb-16 bg-white p-3 rounded-[2rem] shadow-xl border border-slate-100 flex flex-col md:flex-row gap-4">
-          <div className="md:w-1/3 p-6 flex flex-col justify-center">
-            <div className="bg-primary-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 text-primary-900">
-              <MapPin size={28} />
-            </div>
-            <h3 className="text-2xl font-bold text-slate-900 mb-2">Sede Central</h3>
-            <p className="text-primary-700 font-semibold mb-4">Palacio de Justicia de Encarnación</p>
-            <p className="text-slate-500 text-sm leading-relaxed mb-6">Luis María Argaña y Jóvenes por la Democracia. Concentrando los Tribunales de Apelación y Juzgados de Primera Instancia.</p>
-            <a href="https://maps.google.com/maps?vet=10CAAQoqAOahcKEwi4jIDSkP-TAxUAAAAAHQAAAAAQDg..i&sca_esv=d42760043365d063&pvq=OhYweDA6MHhkN2Y0OGJmMzIwNDA4Mjc0&fvr=1&cs=1&um=1&ie=UTF-8&fb=1&gl=py&sa=X&ftid=0x9457954e5bdafdbd:0xd7f48bf320408274" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm font-bold text-white bg-primary-900 hover:bg-primary-800 px-5 py-3 rounded-xl w-fit transition-colors">
-              <ExternalLink size={16} /> Abrir en Maps
-            </a>
+        {/* Sede Central - Simplificado */}
+        <div className="max-w-xl mx-auto mb-16 bg-white p-8 rounded-[2rem] shadow-xl border border-slate-100 text-center">
+          <div className="bg-primary-50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-primary-900 mx-auto">
+            <MapPin size={32} />
           </div>
-          <div className="md:w-2/3 h-80 md:h-auto min-h-[300px] rounded-3xl overflow-hidden bg-slate-100 relative">
-            <iframe 
-              src="https://maps.google.com/maps?q=Palacio+de+Justicia,+Encarnación,+Itapúa,+Paraguay&t=&z=15&ie=UTF8&iwloc=&output=embed" 
-              className="absolute inset-0 w-full h-full border-0" 
-              allowFullScreen="" 
-              loading="lazy" 
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Mapa Sede Central">
-            </iframe>
-          </div>
+          <h3 className="text-2xl font-bold text-slate-900 mb-2">Sede Central</h3>
+          <p className="text-primary-700 font-semibold mb-4">Palacio de Justicia de Encarnación</p>
+          <p className="text-slate-500 text-sm leading-relaxed mb-8">Luis María Argaña y Jóvenes por la Democracia. Concentrando los Tribunales de Apelación y Juzgados de Primera Instancia.</p>
+          <a 
+            href="https://www.google.com/maps/search/?api=1&query=Palacio+de+Justicia,+Encarnación,+Itapúa,+Paraguay" 
+            target="_blank" 
+            rel="noreferrer" 
+            className="inline-flex items-center gap-2 text-sm font-bold text-white bg-primary-900 hover:bg-primary-800 px-8 py-4 rounded-xl transition-all shadow-lg hover:shadow-primary-900/20 active:scale-95"
+          >
+            <ExternalLink size={18} /> {t('districts.modal_google_maps')}
+          </a>
         </div>
 
         <div className="flex flex-wrap justify-center gap-3 max-w-5xl mx-auto">
@@ -134,18 +127,6 @@ const DistrictsGuide = () => {
               </div>
             </div>
 
-            {/* Mapa Embebido del Distrito */}
-            <div className="w-full h-48 rounded-xl overflow-hidden border border-slate-200 mt-2">
-              <iframe 
-                src={`https://maps.google.com/maps?q=${encodeURIComponent(selectedDistrict.address + ', ' + selectedDistrict.name + ', Itapúa, Paraguay')}&t=&z=14&ie=UTF8&iwloc=&output=embed`}
-                width="100%" 
-                height="100%" 
-                style={{border:0}} 
-                allowFullScreen="" 
-                loading="lazy"
-                title={`Mapa de ${selectedDistrict.name}`}>
-              </iframe>
-            </div>
           </div>
         </Modal>
       )}
