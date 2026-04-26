@@ -72,7 +72,7 @@ const DistrictsGuide = () => {
           </div>
           <div className="md:w-2/3 h-80 md:h-auto min-h-[300px] rounded-3xl overflow-hidden bg-slate-100 relative">
             <iframe 
-              src="https://www.google.com/maps?q=Palacio+de+Justicia,+Encarnación,+Itapúa,+Paraguay&output=embed" 
+              src="https://maps.google.com/maps?q=Palacio+de+Justicia,+Encarnación,+Itapúa,+Paraguay&t=&z=15&ie=UTF8&iwloc=&output=embed" 
               className="absolute inset-0 w-full h-full border-0" 
               allowFullScreen="" 
               loading="lazy" 
@@ -137,7 +137,7 @@ const DistrictsGuide = () => {
             {/* Mapa Embebido del Distrito */}
             <div className="w-full h-48 rounded-xl overflow-hidden border border-slate-200 mt-2">
               <iframe 
-                src={`https://www.google.com/maps?q=${encodeURIComponent(selectedDistrict.address + ', ' + selectedDistrict.name + ', Itapúa, Paraguay')}&output=embed`}
+                src={`https://maps.google.com/maps?q=${encodeURIComponent(selectedDistrict.address + ', ' + selectedDistrict.name + ', Itapúa, Paraguay')}&t=&z=14&ie=UTF8&iwloc=&output=embed`}
                 width="100%" 
                 height="100%" 
                 style={{border:0}} 
