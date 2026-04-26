@@ -5,6 +5,9 @@ import {
   Gavel, CheckCircle2, Navigation 
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import vargasImg from '../../assets/vargas.jpg';
+import monzonImg from '../../assets/monzon.jpg';
+import scappiniImg from '../../assets/scappini.jpg';
 
 const Institutional = () => {
   const { t } = useTranslation();
@@ -133,13 +136,18 @@ const Institutional = () => {
               
               <div className="grid sm:grid-cols-2 gap-4">
                 {[
-                  { title: t('institutional.council_pres'), name: "Abg. Miguel Ángel Vargas Díaz" },
-                  { title: t('institutional.council_vp1'), name: "Abg. Nilsa Inés Monzón de Sarquis" },
-                  { title: t('institutional.council_vp2'), name: "Abg. Claudia Andrea Scappini Parzajuk" }
+                  { title: t('institutional.council_pres'), name: "Abg. Miguel Ángel Vargas Díaz", img: vargasImg },
+                  { title: t('institutional.council_vp1'), name: "Abg. Nilsa Inés Monzón de Sarquis", img: monzonImg },
+                  { title: t('institutional.council_vp2'), name: "Abg. Claudia Andrea Scappini Parzajuk", img: scappiniImg }
                 ].map((member, idx) => (
-                  <div key={idx} className={`p-5 rounded-xl border border-slate-100 bg-slate-50 transition-colors ${idx === 0 ? 'sm:col-span-2 bg-gradient-to-r from-slate-50 to-white shadow-sm border-b-2 border-b-slate-200' : ''}`}>
-                    <p className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">{member.title}</p>
-                    <p className="font-semibold text-slate-800">{member.name}</p>
+                  <div key={idx} className={`p-5 rounded-xl border border-slate-100 bg-slate-50 flex items-center gap-4 transition-colors ${idx === 0 ? 'sm:col-span-2 bg-gradient-to-r from-slate-50 to-white shadow-sm border-b-2 border-b-slate-200' : ''}`}>
+                    <div className="w-16 h-16 rounded-full overflow-hidden shrink-0 border-2 border-white shadow-sm">
+                      <img src={member.img} alt={member.name} className="w-full h-full object-cover" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">{member.title}</p>
+                      <p className="font-semibold text-slate-800 leading-tight">{member.name}</p>
+                    </div>
                   </div>
                 ))}
               </div>

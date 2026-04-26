@@ -8,36 +8,6 @@ const NewsSection = () => {
   const [newsItems, setNewsItems] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const defaultNews = useMemo(() => [
-    {
-      id: 1,
-      tag: t('news.tags.innovation'),
-      tagColor: "bg-blue-100 text-blue-700",
-      title: t('news.items.1.title'),
-      date: "20 Abril 2026",
-      excerpt: t('news.items.1.excerpt'),
-      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800"
-    },
-    {
-      id: 2,
-      tag: t('news.tags.institutional'),
-      tagColor: "bg-emerald-100 text-emerald-700",
-      title: t('news.items.2.title'),
-      date: "18 Abril 2026",
-      excerpt: t('news.items.2.excerpt'),
-      image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=800"
-    },
-    {
-      id: 3,
-      tag: t('news.tags.communique'),
-      tagColor: "bg-amber-100 text-amber-700",
-      title: t('news.items.3.title'),
-      date: "15 Abril 2026",
-      excerpt: t('news.items.3.excerpt'),
-      image: "https://images.unsplash.com/photo-1575505586569-646b2ca898fc?auto=format&fit=crop&q=80&w=800"
-    }
-  ], [t]);
-
   useEffect(() => {
     async function fetchNews() {
       try {
@@ -61,18 +31,18 @@ const NewsSection = () => {
           }));
           setNewsItems(formattedData);
         } else {
-          setNewsItems(defaultNews);
+          setNewsItems([]);
         }
       } catch (error) {
         console.error("Error fetching news from Supabase:", error);
-        setNewsItems(defaultNews);
+        setNewsItems([]);
       } finally {
         setLoading(false);
       }
     }
 
     fetchNews();
-  }, [t, defaultNews]);
+  }, [t]);
 
   return (
     <section className="py-24 bg-white relative z-10 border-t border-slate-100">
@@ -100,7 +70,7 @@ const NewsSection = () => {
           <div className="flex justify-center items-center py-20 w-full">
             <Loader2 className="w-10 h-10 text-primary-500 animate-spin" />
           </div>
-        ) : (
+        ) : newsItems.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {newsItems.map((item) => (
               <article
@@ -140,6 +110,10 @@ const NewsSection = () => {
               </div>
             </article>
             ))}
+          </div>
+        ) : (
+          <div className="flex justify-center items-center py-20 w-full bg-slate-50 rounded-3xl border border-slate-100">
+            <p className="text-slate-500 text-lg font-medium">No hay publicaciones disponibles por el momento.</p>
           </div>
         )}
       </div>

@@ -7,7 +7,7 @@ const Home = () => {
       <Hero />
       {/* <ServicesGrid /> */}
       <NewsSection />
-      {/* <TransparencyBoard /> */}
+      <TransparencyBoard />
       <DistrictsGuide />
     </>
   );
