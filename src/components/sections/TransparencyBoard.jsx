@@ -38,10 +38,7 @@ const TransparencyBoard = () => {
                   </div>
                   <h4 className="font-bold text-slate-900 text-lg leading-tight min-h-[3rem] flex items-center justify-center px-2">{a.name}</h4>
                   <p className="text-sm text-primary-700 font-bold mt-2 uppercase tracking-wide">{a.role}</p>
-                  <div className="mt-6 pt-6 border-t border-slate-200 flex justify-center gap-4">
-                    <button className="text-slate-400 hover:text-primary-600 focus:outline-none focus:text-primary-600 transition-colors" aria-label="Enviar correo"><Mail size={18} /></button>
-                    <button className="text-slate-400 hover:text-primary-600 focus:outline-none focus:text-primary-600 transition-colors" aria-label="Abrir perfil"><ExternalLink size={18} /></button>
-                  </div>
+
                 </div>
               ))}
             </div>
