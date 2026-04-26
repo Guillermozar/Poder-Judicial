@@ -134,22 +134,35 @@ const Institutional = () => {
             <div className="lg:col-span-3 space-y-4">
               <h3 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-6 pl-2 border-l-2 border-slate-400">{t('institutional.authorities_council')}</h3>
               
-              <div className="grid sm:grid-cols-2 gap-4">
-                {[
-                  { title: t('institutional.council_pres'), name: "Abg. Miguel Ángel Vargas Díaz", img: vargasImg },
-                  { title: t('institutional.council_vp1'), name: "Abg. Nilsa Inés Monzón de Sarquis", img: monzonImg },
-                  { title: t('institutional.council_vp2'), name: "Abg. Claudia Andrea Scappini Parzajuk", img: scappiniImg }
-                ].map((member, idx) => (
-                  <div key={idx} className={`p-5 rounded-xl border border-slate-100 bg-slate-50 flex items-center gap-4 transition-colors ${idx === 0 ? 'sm:col-span-2 sm:w-4/5 sm:mx-auto bg-gradient-to-r from-slate-50 to-white shadow-sm border-b-2 border-b-slate-200' : ''}`}>
-                    <div className="w-16 h-16 rounded-full overflow-hidden shrink-0 border-2 border-white shadow-sm">
-                      <img src={member.img} alt={member.name} className="w-full h-full object-cover" />
-                    </div>
-                    <div>
-                      <p className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">{member.title}</p>
-                      <p className="font-semibold text-slate-800 leading-tight">{member.name}</p>
-                    </div>
+              <div className="flex flex-col items-center gap-4">
+                {/* Presidente */}
+                <div className="p-5 rounded-xl border border-slate-100 bg-gradient-to-r from-slate-50 to-white flex items-center gap-4 transition-colors shadow-sm border-b-2 border-b-slate-200 w-full sm:w-[calc(50%-0.5rem)]">
+                  <div className="w-16 h-16 rounded-full overflow-hidden shrink-0 border-2 border-white shadow-sm">
+                    <img src={vargasImg} alt="Abg. Miguel Ángel Vargas Díaz" className="w-full h-full object-cover" />
                   </div>
-                ))}
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">{t('institutional.council_pres')}</p>
+                    <p className="font-semibold text-slate-800 leading-tight">Abg. Miguel Ángel Vargas Díaz</p>
+                  </div>
+                </div>
+                
+                {/* Vicepresidentas */}
+                <div className="grid sm:grid-cols-2 gap-4 w-full">
+                  {[
+                    { title: t('institutional.council_vp1'), name: "Abg. Nilsa Inés Monzón de Sarquis", img: monzonImg },
+                    { title: t('institutional.council_vp2'), name: "Abg. Claudia Andrea Scappini Parzajuk", img: scappiniImg }
+                  ].map((member, idx) => (
+                    <div key={idx} className="p-5 rounded-xl border border-slate-100 bg-slate-50 flex items-center gap-4 transition-colors">
+                      <div className="w-16 h-16 rounded-full overflow-hidden shrink-0 border-2 border-white shadow-sm">
+                        <img src={member.img} alt={member.name} className="w-full h-full object-cover" />
+                      </div>
+                      <div>
+                        <p className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">{member.title}</p>
+                        <p className="font-semibold text-slate-800 leading-tight">{member.name}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
