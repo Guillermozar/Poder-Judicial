@@ -14,8 +14,8 @@ const Header = () => {
   const searchableItems = [
     { title: t('header.nav.home'), path: '/' },
     { title: t('header.nav.institutional'), path: '/institucional' },
-    { title: t('header.nav.services'), path: '/#servicios' },
-    { title: t('header.nav.transparency'), path: '/#transparencia' },
+    // { title: t('header.nav.services'), path: '/#servicios' },
+    // { title: t('header.nav.transparency'), path: '/#transparencia' },
     { title: t('header.nav.districts'), path: '/#distritos' },
     { title: 'Expediente Electrónico Judicial', path: 'https://apps.csj.gov.py/login', external: true },
     { title: 'Corte Suprema', path: 'https://www.pj.gov.py', external: true }
@@ -44,8 +44,8 @@ const Header = () => {
   const navItems = [
     { name: t('header.nav.home'), path: '/' },
     { name: t('header.nav.institutional'), path: '/institucional' },
-    { name: t('header.nav.services'), path: '/#servicios' },
-    { name: t('header.nav.transparency'), path: '/#transparencia' },
+    // { name: t('header.nav.services'), path: '/#servicios' },
+    // { name: t('header.nav.transparency'), path: '/#transparencia' },
     { name: t('header.nav.districts'), path: '/#distritos' }
   ];
 
