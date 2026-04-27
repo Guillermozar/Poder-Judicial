@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next';
 import vargasImg from '../../assets/vargas.jpg';
 import monzonImg from '../../assets/monzon.jpg';
 import scappiniImg from '../../assets/scappini.jpg';
+import llanesImg from '../../assets/llanes.jpg';
 
 const Institutional = () => {
   const { t } = useTranslation();
@@ -115,12 +116,16 @@ const Institutional = () => {
               <h3 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-6 pl-2 border-l-2 border-blue-600">{t('institutional.authorities_ministers')}</h3>
               
               {[
-                { name: "Dra. María Carolina Llanes Ocampos" },
-                { name: "Dr. César Manuel Diesel Junghanns" }
+                { name: "Dra. María Carolina Llanes Ocampos", img: llanesImg },
+                { name: "Dr. César Manuel Diesel Junghanns", img: null }
               ].map((autoridad, idx) => (
                 <div key={idx} className="flex items-center gap-4 bg-white border border-slate-200 p-4 rounded-xl shadow-sm hover:border-blue-300 transition-colors cursor-default">
-                  <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center shrink-0 border border-slate-200">
-                    <Users size={20} className="text-slate-600" />
+                  <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center shrink-0 border border-slate-200 overflow-hidden">
+                    {autoridad.img ? (
+                      <img src={autoridad.img} alt={autoridad.name} className="w-full h-full object-cover" />
+                    ) : (
+                      <Users size={20} className="text-slate-600" />
+                    )}
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-800 text-[15px]">{autoridad.name}</h4>
