@@ -9,6 +9,7 @@ import vargasImg from '../../assets/vargas.jpg';
 import monzonImg from '../../assets/monzon.jpg';
 import scappiniImg from '../../assets/scappini.jpg';
 import llanesImg from '../../assets/llanes.jpg';
+import dieselImg from '../../assets/cesarmanuel.jpg';
 
 const Institutional = () => {
   const { t } = useTranslation();
@@ -117,7 +118,7 @@ const Institutional = () => {
               
               {[
                 { name: "Dra. María Carolina Llanes Ocampos", img: llanesImg },
-                { name: "Dr. César Manuel Diesel Junghanns", img: null }
+                { name: "Dr. César Manuel Diesel Junghanns", img: dieselImg }
               ].map((autoridad, idx) => (
                 <div key={idx} className="flex items-center gap-4 bg-white border border-slate-200 p-4 rounded-xl shadow-sm hover:border-blue-300 transition-colors cursor-default">
                   <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center shrink-0 border border-slate-200 overflow-hidden">
