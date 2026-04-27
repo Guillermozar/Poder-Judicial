@@ -53,9 +53,8 @@ const Footer = () => {
 
         </div>
 
-        <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
-          <p className="text-center md:text-left">{t('footer.copy').replace('{{year}}', currentYear)}</p>
-          <p className="text-slate-500 font-medium">{t('footer.made_by')}</p>
+        <div className="pt-8 border-t border-slate-800 flex justify-center text-xs">
+          <p className="text-center">{t('footer.copy').replace('{{year}}', currentYear)}</p>
         </div>
       </div>
     </footer>
