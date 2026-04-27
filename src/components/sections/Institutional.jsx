@@ -10,6 +10,7 @@ import monzonImg from '../../assets/monzon.jpg';
 import scappiniImg from '../../assets/scappini.jpg';
 import llanesImg from '../../assets/llanes.jpg';
 import dieselImg from '../../assets/cesarmanuel.jpg';
+import fachadaImg from '../../assets/fachadapj.jpeg';
 
 const Institutional = () => {
   const { t } = useTranslation();
@@ -294,7 +295,7 @@ const Institutional = () => {
           <div className="lg:col-span-8 bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm flex flex-col sm:flex-row group cursor-default">
             <div className="sm:w-2/5 md:w-1/2 relative overflow-hidden h-64 sm:h-auto min-h-[300px]">
               <img 
-                src="/palace-render.png" 
+                src={fachadaImg} 
                 alt="Palacio de Justicia de Encarnación" 
                 loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
