@@ -1,5 +1,6 @@
 import React from 'react';
 import { Scale, Globe, Mail, ChevronRight, MapPin, Phone } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
@@ -34,6 +35,7 @@ const Footer = () => {
               <li><a href="#" className="hover:text-white flex items-center gap-2 focus:outline-none"><ChevronRight size={14} /> {t('footer.penal')}</a></li>
               <li><a href="https://apps.csj.gov.py/login" target="_blank" rel="noopener noreferrer" className="hover:text-white flex items-center gap-2 focus:outline-none"><ChevronRight size={14} /> Sistema Judisoft</a></li>
               <li><a href="https://ingresosjudiciales.csj.gov.py/LiquidacionesWeb/home.seam" target="_blank" rel="noopener noreferrer" className="hover:text-white flex items-center gap-2 focus:outline-none"><ChevronRight size={14} /> Tasas Judiciales</a></li>
+              <li><Link to="/calendario" className="hover:text-white flex items-center gap-2 focus:outline-none"><ChevronRight size={14} /> Calendario (Agenda)</Link></li>
             </ul>
           </div>
 

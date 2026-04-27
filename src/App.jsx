@@ -6,6 +6,7 @@ const Home = lazy(() => import('./pages/Home'));
 const Institutional = lazy(() => import('./components/sections/Institutional'));
 const Login = lazy(() => import('./pages/admin/Login'));
 const NewsManager = lazy(() => import('./pages/admin/NewsManager'));
+const AgendaPage = lazy(() => import('./pages/Agenda'));
 
 const App = () => {
   const location = useLocation();
@@ -20,6 +21,7 @@ const App = () => {
             <Route path="/institucional" element={<Institutional />} />
             <Route path="/comunicaciones" element={<Login />} />
             <Route path="/comunicaciones/gestor" element={<NewsManager />} />
+            <Route path="/calendario" element={<AgendaPage />} />
           </Routes>
         </Suspense>
       </main>
