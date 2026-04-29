@@ -24,7 +24,7 @@ const Footer = () => {
             </p>
             <div className="flex gap-4">
               <button className="bg-slate-800 p-2 rounded hover:bg-primary-600 cursor-pointer transition-colors focus:outline-none" aria-label="Sitio web"><Globe size={18} /></button>
-              <button className="bg-slate-800 p-2 rounded hover:bg-primary-600 cursor-pointer transition-colors focus:outline-none" aria-label="Correo electrónico"><Mail size={18} /></button>
+              <a href="https://mail.pj.gov.py/owa/auth/logon.aspx?replaceCurrent=1&url=https%3a%2f%2fmail.pj.gov.py%2fowa%2f" target="_blank" rel="noopener noreferrer" className="bg-slate-800 p-2 rounded hover:bg-primary-600 cursor-pointer transition-colors focus:outline-none flex items-center" aria-label="Correo electrónico"><Mail size={18} /></a>
             </div>
           </div>
 
@@ -36,6 +36,7 @@ const Footer = () => {
               <li><a href="https://apps.csj.gov.py/login" target="_blank" rel="noopener noreferrer" className="hover:text-white flex items-center gap-2 focus:outline-none"><ChevronRight size={14} /> Sistema Judisoft</a></li>
               <li><a href="https://ingresosjudiciales.csj.gov.py/LiquidacionesWeb/home.seam" target="_blank" rel="noopener noreferrer" className="hover:text-white flex items-center gap-2 focus:outline-none"><ChevronRight size={14} /> Tasas Judiciales</a></li>
               <li><Link to="/calendario" className="hover:text-white flex items-center gap-2 focus:outline-none"><ChevronRight size={14} /> Calendario (Agenda)</Link></li>
+              <li><a href="https://mail.pj.gov.py/owa/auth/logon.aspx?replaceCurrent=1&url=https%3a%2f%2fmail.pj.gov.py%2fowa%2f" target="_blank" rel="noopener noreferrer" className="hover:text-white flex items-center gap-2 focus:outline-none"><ChevronRight size={14} /> Correo Institucional</a></li>
             </ul>
           </div>
 

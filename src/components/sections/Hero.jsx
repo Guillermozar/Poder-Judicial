@@ -20,19 +20,7 @@ const Hero = () => {
           <p className="text-lg md:text-xl text-primary-100 mb-8 font-light leading-relaxed">
             {t('hero.subtitle')}
           </p>
-          <div className="flex flex-wrap gap-4">
-            <a 
-              href="https://apps.csj.gov.py/login" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="bg-white text-primary-900 px-6 py-3 md:px-8 md:py-4 rounded-xl font-bold shadow-xl hover:bg-primary-50 transition-all flex items-center gap-2 text-sm md:text-base cursor-pointer"
-            >
-              <Gavel size={20} /> {t('hero.btn_electronic_file')}
-            </a>
-            <button className="bg-transparent border-2 border-white/50 text-white px-6 py-3 md:px-8 md:py-4 rounded-xl font-bold hover:bg-white/10 transition-all text-sm md:text-base">
-              {t('hero.btn_guide')}
-            </button>
-          </div>
+
         </div>
       </div>
     </section>

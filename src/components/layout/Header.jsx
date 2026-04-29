@@ -41,8 +41,7 @@ const Header = () => {
 
   const navItems = [
     { name: t('header.nav.home'), path: '/' },
-    { name: t('header.nav.institutional'), path: '/institucional' },
-    { name: t('header.nav.districts'), path: '/#distritos' }
+    { name: t('header.nav.institutional'), path: '/institucional' }
   ];
 
   const getIsActive = (path) => {
@@ -53,7 +52,7 @@ const Header = () => {
   return (
     <>
       <header className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-lg py-2' : 'bg-white/95 py-4'}`}>
-        <div className="container mx-auto px-4 flex justify-between items-center">
+        <div className="max-w-[1440px] w-full mx-auto px-6 flex justify-between items-center">
           <Link to="/" className="flex items-center gap-3">
             <div className="bg-primary-900 p-2 rounded-lg shadow-sm">
               <Scale className="text-white w-8 h-8" />
@@ -134,6 +133,7 @@ const Header = () => {
             </div>
             */}
 
+            {/* Oculto temporalmente
             <button 
               onClick={toggleLanguage} 
               className="flex items-center gap-1.5 ml-1 px-3 py-1.5 border border-slate-200 hover:border-primary-500 rounded-full text-xs font-bold text-slate-600 hover:text-primary-700 transition-all uppercase tracking-wider bg-white shadow-sm"
@@ -142,6 +142,7 @@ const Header = () => {
               <Globe size={14} className={i18n.language === 'gn' ? 'text-primary-500' : ''} />
               {i18n.language}
             </button>
+            */}
           </nav>
 
           <button className="lg:hidden text-slate-800 focus:outline-none" aria-label="Menu" onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -204,6 +205,7 @@ const Header = () => {
             ))}
           </div>
           
+          {/* Oculto temporalmente
           <button 
             onClick={() => { toggleLanguage(); setIsMenuOpen(false); }} 
             className="mt-auto mb-4 flex justify-center items-center gap-2 border border-slate-200 py-4 rounded-2xl font-bold text-lg hover:bg-slate-50 transition uppercase"
@@ -211,6 +213,7 @@ const Header = () => {
             <Globe size={20} />
             {i18n.language === 'es' ? t('header.lang_gn') : t('header.lang_es')}
           </button>
+          */}
         </div>
       )}
 
