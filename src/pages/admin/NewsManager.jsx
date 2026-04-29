@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { supabase } from '../../lib/supabase';
 import { useNavigate } from 'react-router-dom';
-import { LogOut, Plus, Trash2, Image as ImageIcon, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
+import { LogOut, Plus, Trash2, Pencil, Image as ImageIcon, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
 
 const NewsManager = () => {
   const { user, logout, loading: authLoading } = useAuth();
@@ -22,6 +22,8 @@ const NewsManager = () => {
     instagramUrl: ''
   });
   const [imageFile, setImageFile] = useState(null);
+  const [editingId, setEditingId] = useState(null);
+  const [currentImageUrl, setCurrentImageUrl] = useState('');
   
   // Notificaciones
   const [message, setMessage] = useState('');
@@ -71,7 +73,7 @@ const NewsManager = () => {
     setError('');
 
     try {
-      let imageUrl = '';
+      let imageUrl = currentImageUrl;
 
       // 1. Subir la imagen si existe
       if (imageFile) {
@@ -93,22 +95,42 @@ const NewsManager = () => {
         imageUrl = publicUrl;
       }
 
-      // 2. Insertar en la base de datos
-      const { error: insertError } = await supabase.from('news').insert([
-        {
-          title: formData.title,
-          excerpt: formData.excerpt,
-          tag: formData.tag,
-          tag_color: formData.tagColor,
-          image_url: imageUrl || 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=800', // fallback img
-          instagram_url: formData.instagramUrl
-        }
-      ]);
+      if (editingId) {
+        // 2. Actualizar en la base de datos
+        const { error: updateError } = await supabase
+          .from('news')
+          .update({
+            title: formData.title,
+            excerpt: formData.excerpt,
+            tag: formData.tag,
+            tag_color: formData.tagColor,
+            image_url: imageUrl || 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=800',
+            instagram_url: formData.instagramUrl
+          })
+          .eq('id', editingId);
 
-      if (insertError) throw insertError;
+        if (updateError) throw updateError;
+        setMessage('Noticia actualizada exitosamente.');
+      } else {
+        // 3. Insertar en la base de datos
+        const { error: insertError } = await supabase.from('news').insert([
+          {
+            title: formData.title,
+            excerpt: formData.excerpt,
+            tag: formData.tag,
+            tag_color: formData.tagColor,
+            image_url: imageUrl || 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=800',
+            instagram_url: formData.instagramUrl
+          }
+        ]);
 
-      setMessage('Noticia publicada exitosamente.');
+        if (insertError) throw insertError;
+        setMessage('Noticia publicada exitosamente.');
+      }
+
       setShowForm(false);
+      setEditingId(null);
+      setCurrentImageUrl('');
       setFormData({ title: '', excerpt: '', tag: 'Institucional', tagColor: 'bg-emerald-100 text-emerald-700', instagramUrl: '' });
       setImageFile(null);
       fetchNews(); // Recargar lista
@@ -119,6 +141,20 @@ const NewsManager = () => {
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const handleEdit = (item) => {
+    setEditingId(item.id);
+    setCurrentImageUrl(item.image_url);
+    setFormData({
+      title: item.title,
+      excerpt: item.excerpt,
+      tag: item.tag || 'Institucional',
+      tagColor: item.tag_color || 'bg-emerald-100 text-emerald-700',
+      instagramUrl: item.instagram_url || ''
+    });
+    setShowForm(true);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleDelete = async (id) => {
@@ -176,7 +212,14 @@ const NewsManager = () => {
           <div className="flex justify-between items-center mb-4">
              <h2 className="text-xl font-semibold text-slate-800">Tus Noticias publicadas</h2>
              <button 
-                onClick={() => setShowForm(!showForm)}
+                onClick={() => {
+                  if (showForm) {
+                    setEditingId(null);
+                    setCurrentImageUrl('');
+                    setFormData({ title: '', excerpt: '', tag: 'Institucional', tagColor: 'bg-emerald-100 text-emerald-700', instagramUrl: '' });
+                  }
+                  setShowForm(!showForm);
+                }}
                 className="flex items-center bg-primary-600 text-white px-4 py-2.5 rounded-xl text-sm font-medium hover:bg-primary-700 transition-colors shadow-sm"
              >
                {showForm ? 'Cancelar' : <><Plus className="w-4 h-4 mr-2" /> Nueva Noticia</>}
@@ -311,6 +354,13 @@ const NewsManager = () => {
                            </span>
                         </td>
                         <td className="py-4 px-6 text-right">
+                           <button 
+                              onClick={() => handleEdit(item)}
+                              className="p-2 text-slate-400 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors mr-2"
+                              title="Editar Noticia"
+                           >
+                             <Pencil className="w-5 h-5" />
+                           </button>
                            <button 
                               onClick={() => handleDelete(item.id)}
                               className="p-2 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
