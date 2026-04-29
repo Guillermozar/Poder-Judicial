@@ -20,8 +20,9 @@ const Login = () => {
       await login(email, password);
       // Login exitoso, enviar al gestor
       navigate('/comunicaciones/gestor');
-    } catch {
-      setAuthError('Correo o contraseña incorrectos. Verifica tus credenciales.');
+    } catch (err) {
+      console.error("Error de login:", err);
+      setAuthError(err.message || 'Correo o contraseña incorrectos. Verifica tus credenciales.');
     } finally {
       setIsLoading(false);
     }
