@@ -41,7 +41,8 @@ const Header = () => {
 
   const navItems = [
     { name: t('header.nav.home'), path: '/' },
-    { name: t('header.nav.institutional'), path: '/institucional' }
+    { name: t('header.nav.institutional'), path: '/institucional' },
+    { name: 'PJ Oficial', path: 'https://www.pj.gov.py/', external: true }
   ];
 
   const getIsActive = (path) => {
@@ -65,7 +66,20 @@ const Header = () => {
 
           <nav className="hidden lg:flex items-center gap-8">
             {navItems.map((item) => {
-              const active = getIsActive(item.path);
+              const active = !item.external && getIsActive(item.path);
+              if (item.external) {
+                return (
+                  <a 
+                    key={item.name}
+                    href={item.path}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-bold uppercase tracking-wider transition-colors hover:text-primary-700 text-slate-600"
+                  >
+                    {item.name}
+                  </a>
+                );
+              }
               return (
                 <Link 
                   key={item.name}
@@ -198,11 +212,27 @@ const Header = () => {
           */}
 
           <div className="flex flex-col gap-6 text-2xl font-bold text-slate-800">
-            {navItems.map((item) => (
-              <Link key={item.name} to={item.path} className="text-left hover:text-primary-700 transition" onClick={() => setIsMenuOpen(false)}>
-                {item.name}
-              </Link>
-            ))}
+             {navItems.map((item) => {
+               if (item.external) {
+                 return (
+                   <a 
+                     key={item.name} 
+                     href={item.path} 
+                     target="_blank" 
+                     rel="noopener noreferrer" 
+                     className="text-left hover:text-primary-700 transition" 
+                     onClick={() => setIsMenuOpen(false)}
+                   >
+                     {item.name}
+                   </a>
+                 );
+               }
+               return (
+                 <Link key={item.name} to={item.path} className="text-left hover:text-primary-700 transition" onClick={() => setIsMenuOpen(false)}>
+                   {item.name}
+                 </Link>
+               );
+             })}
           </div>
           
           {/* Oculto temporalmente
