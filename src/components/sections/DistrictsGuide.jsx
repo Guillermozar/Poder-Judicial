@@ -12,7 +12,7 @@ const DistrictsGuide = () => {
     { name: "Alto Verá", address: "Sede Judicial de Alto Verá, Avda. Principal", phone: "(071) 219 2000", hours: "07:00 a 13:00" },
     { name: "Bella Vista", address: "Juzgado de Paz, Bella Vista", phone: "(071) 219 2000", hours: "07:00 a 13:00" },
     { name: "Cambyretá", address: "Juzgado de Paz de Cambyretá", phone: "(071) 219 2000", hours: "07:00 a 13:00" },
-    { name: "Capitán Meza", address: "Sede Judicial Cap. Meza", phone: "(071) 219 2000", hours: "07:00 a 13:00" },
+    { name: "Capitán Meza", address: "Sede Judicial Cap. Meza", phone: "(071) 219 2000", hours: "07:00 a 13:00", mapLink: "https://www.google.com/maps/place/Juzgado+De+Paz+de+Capit%C3%A1n+Meza/@-26.8250237,-55.336846,17z/data=!3m1!4b1!4m6!3m5!1s0x94f7f84aa5dc5035:0xfa308cbc1d2ff623!8m2!3d-26.8250237!4d-55.336846!16s%2Fg%2F11c6v4hf_3!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDQyNy4wIKXMDSoASAFQAw%3D%3D" },
     { name: "Capitán Miranda", address: "Juzgado de Paz Cap. Miranda", phone: "(071) 219 2000", hours: "07:00 a 13:00" },
     { name: "Carlos Antonio López", address: "Juzgado de Paz C.A.L.", phone: "(071) 219 2000", hours: "07:00 a 13:00" },
     { name: "Carmen del Paraná", address: "Juzgado de Paz Carmen del Paraná", phone: "(071) 219 2000", hours: "07:00 a 13:00" },
@@ -30,7 +30,7 @@ const DistrictsGuide = () => {
     { name: "Mayor Otaño", address: "Juzgado de Paz de Mayor Otaño", phone: "(071) 219 2000", hours: "07:00 a 13:00" },
     { name: "Natalio", address: "Juzgado de Paz de Natalio", phone: "(071) 219 2000", hours: "07:00 a 13:00" },
     { name: "Nueva Alborada", address: "Juzgado de Paz Nueva Alborada", phone: "(071) 219 2000", hours: "07:00 a 13:00" },
-    { name: "Obligado", address: "Juzgado de Paz de Obligado", phone: "(071) 219 2000", hours: "07:00 a 13:00" },
+    { name: "Obligado", address: "Juzgado de Paz de Obligado", phone: "(071) 219 2000", hours: "07:00 a 13:00", mapLink: "https://www.google.com/maps/place/27%C2%B003'28.0%22S+55%C2%B037'30.7%22W/@-27.0574856,-55.6286875,16.5z/data=!4m4!3m3!8m2!3d-27.0577668!4d-55.6252003?hl=es&entry=ttu&g_ep=EgoyMDI2MDQyNy4wIKXMDSoASAFQAw%3D%3D" },
     { name: "Pirapó", address: "Juzgado de Paz de Pirapó", phone: "(071) 219 2000", hours: "07:00 a 13:00" },
     { name: "San Cosme y Damián", address: "Juzgado de Paz San Cosme y Damián", phone: "(071) 219 2000", hours: "07:00 a 13:00" },
     { name: "San Juan del Paraná", address: "Juzgado de Paz San Juan del Paraná", phone: "(071) 219 2000", hours: "07:00 a 13:00" },
@@ -104,20 +104,13 @@ const DistrictsGuide = () => {
                 <div>
                   <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">{t('districts.modal_address')}</p>
                   <p className="text-slate-700 font-semibold leading-relaxed">{selectedDistrict.address}</p>
-                  <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(selectedDistrict.address + ', ' + selectedDistrict.name + ', Itapúa, Paraguay')}`} target="_blank" rel="noreferrer" className="text-primary-700 text-xs font-bold mt-2 flex items-center gap-1 hover:underline w-fit">
+                  <a href={selectedDistrict.mapLink || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(selectedDistrict.address + ', ' + selectedDistrict.name + ', Itapúa, Paraguay')}`} target="_blank" rel="noreferrer" className="text-primary-700 text-xs font-bold mt-2 flex items-center gap-1 hover:underline w-fit">
                     <ExternalLink size={12} /> {t('districts.modal_google_maps')}
                   </a>
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 flex flex-col gap-2">
-                  <div className="flex items-center gap-2 mb-1 text-slate-400 uppercase tracking-widest text-xs font-bold">
-                    <Phone size={14} /> {t('districts.modal_contact')}
-                  </div>
-                  <p className="text-slate-700 font-semibold">{selectedDistrict.phone}</p>
-                </div>
-
+              <div className="grid grid-cols-1 gap-4">
                 <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 flex flex-col gap-2">
                   <div className="flex items-center gap-2 mb-1 text-slate-400 uppercase tracking-widest text-xs font-bold">
                     <Clock size={14} /> {t('districts.modal_hours')}

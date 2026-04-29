@@ -32,7 +32,7 @@
     "judicial_soft": { "title": "Judisoft", "desc": "Gestión de Expedientes Electrónicos" },
     "criminal_records": { "title": "Antecedentes", "desc": "Informes y Certificados Penales" },
     "judicial_fees": { "title": "Tasas Judiciales", "desc": "Liquidación y Pago de Tasas" },
-    "mediation": { "title": "Mediación", "desc": "Resolución Alternativa de Conflictos" },
+    "personnel_entry": { "title": "Ingreso y Promoción de Personas", "desc": "Concursos y Oportunidades" },
     "forms": { "title": "Formularios", "desc": "Gestión y Documentación Judicial" },
     "transparency": { "title": "Transparencia", "desc": "Ley 5282/14 - Información Pública" }
   },

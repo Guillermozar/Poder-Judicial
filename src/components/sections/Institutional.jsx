@@ -14,6 +14,7 @@ import fachadaImg from '../../assets/fachadapj.jpeg';
 
 const Institutional = () => {
   const { t } = useTranslation();
+  const [expandedMinister, setExpandedMinister] = React.useState(null);
 
   return (
     <section id="institucional" className="relative py-24 bg-white overflow-hidden scroll-mt-20">
@@ -118,21 +119,60 @@ const Institutional = () => {
               <h3 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-6 pl-2 border-l-2 border-blue-600">{t('institutional.authorities_ministers')}</h3>
               
               {[
-                { name: "Dra. María Carolina Llanes Ocampos", img: llanesImg },
-                { name: "Dr. César Manuel Diesel Junghanns", img: dieselImg }
+                { 
+                  name: "Dra. María Carolina Llanes Ocampos", 
+                  img: llanesImg,
+                  bio: (
+                    <div className="space-y-3 text-sm text-slate-600 mt-4 pt-4 border-t border-slate-100 leading-relaxed text-justify animate-in fade-in slide-in-from-top-2 duration-300">
+                      <p><strong>Abogada y Doctora en Ciencias Jurídicas</strong> por la Universidad Nacional de Asunción (UNA) con calificación "Cum Laude". Cuenta con una destacada trayectoria en el ámbito judicial, fiscal y académico.</p>
+                      <p>Inició su carrera como funcionaria judicial y fiscal en 1984. Posteriormente, se desempeñó como Procuradora Fiscal, Agente Fiscal Penal y Jueza de Garantías, accediendo por concurso de méritos.</p>
+                      <p>Participó activamente en la redacción del Anteproyecto del Código Procesal Penal y en la revisión de la Ley Orgánica del Ministerio Público. Además, integró la Oficina Técnica del Poder Judicial para la implementación del nuevo Sistema Penal.</p>
+                      <p>Es fundadora y miembro del Consejo Institucional del Inecip-Py (Instituto de Estudios Comparados en Ciencias Penales y Sociales del Paraguay).</p>
+                      <p>Autora de diversas obras jurídicas y docente de grado y postgrado en instituciones de prestigio como la UNA, UCA y UAA, así como en la Escuela Judicial.</p>
+                      <p>En la administración pública, ha sido asesora externa del Ministerio de Hacienda y del Jurado de Enjuiciamiento de Magistrados, Directora Jurídica del IPS, Interventora de la Municipalidad de Ciudad del Este y Secretaria Ejecutiva de la SENABICO.</p>
+                      <p>Prestó juramento como <strong>Ministra de la Corte Suprema de Justicia</strong> en julio del año 2019.</p>
+                    </div>
+                  )
+                },
+                { 
+                  name: "Dr. César Manuel Diesel Junghanns", 
+                  img: dieselImg,
+                  bio: (
+                    <div className="space-y-3 text-sm text-slate-600 mt-4 pt-4 border-t border-slate-100 leading-relaxed text-justify animate-in fade-in slide-in-from-top-2 duration-300">
+                      <p><strong>Abogado</strong> por la Universidad Nacional de Asunción (UNA) y <strong>Doctor en Ciencias Jurídicas</strong> por la Universidad Nacional de Pilar (UNP). Cuenta con una extensa carrera en la función pública y el ámbito gremial.</p>
+                      <p>En la administración del Estado, ocupó altos cargos directivos, destacándose como Viceministro de Justicia, Director Jurídico del Ministerio de Justicia y Trabajo, y del Ministerio del Interior. Asimismo, tuvo un rol fundamental en la Justicia Electoral, donde ejerció como Superintendente, Director de Transparencia y Anticorrupción, y Director Jurídico.</p>
+                      <p>Su aporte al sistema de justicia paraguayo incluye su desempeño como Miembro Titular y Vicepresidente del Consejo de la Magistratura en representación del Poder Ejecutivo. Integró diversas comisiones nacionales, incluyendo la Comisión Nacional para la Reforma de la Administración de Justicia.</p>
+                      <p>En el ámbito gremial, fue Miembro Titular de la Comisión Directiva del Colegio de Abogados y ejerce como miembro del Tribunal de Justicia Deportiva de la Asociación Paraguaya de Fútbol desde 2001. Ha participado como observador internacional en múltiples procesos electorales en América Latina.</p>
+                      <p>A lo largo de su trayectoria, participó en numerosos congresos y seminarios nacionales e internacionales, siendo disertante en temas de derecho electoral, justicia y administración pública. Es autor de publicaciones jurídicas especializadas.</p>
+                      <p>Actualmente, se desempeña como <strong>Ministro de la Corte Suprema de Justicia</strong>.</p>
+                    </div>
+                  )
+                }
               ].map((autoridad, idx) => (
-                <div key={idx} className="flex items-center gap-4 bg-white border border-slate-200 p-4 rounded-xl shadow-sm hover:border-blue-300 transition-colors cursor-default">
-                  <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center shrink-0 border border-slate-200 overflow-hidden">
-                    {autoridad.img ? (
-                      <img src={autoridad.img} alt={autoridad.name} className="w-full h-full object-cover" />
-                    ) : (
-                      <Users size={20} className="text-slate-600" />
+                <div 
+                  key={idx} 
+                  onClick={() => autoridad.bio && setExpandedMinister(expandedMinister === idx ? null : idx)}
+                  className={`flex flex-col bg-white border border-slate-200 p-4 rounded-xl shadow-sm transition-all ${autoridad.bio ? 'cursor-pointer hover:border-blue-400 hover:shadow-md' : 'cursor-default hover:border-blue-300'}`}
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="w-16 h-16 sm:w-12 sm:h-12 rounded-full bg-slate-100 flex items-center justify-center shrink-0 border border-slate-200 overflow-hidden">
+                      {autoridad.img ? (
+                        <img src={autoridad.img} alt={autoridad.name} className="w-full h-full object-cover" />
+                      ) : (
+                        <Users size={20} className="text-slate-600" />
+                      )}
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="font-bold text-slate-800 text-[15px] leading-tight">{autoridad.name}</h4>
+                      <p className="text-xs text-blue-600 font-medium mt-0.5">{t('institutional.authorities_csj')}</p>
+                    </div>
+                    {autoridad.bio && (
+                      <div className={`text-slate-400 transition-transform duration-300 ${expandedMinister === idx ? 'rotate-90' : ''}`}>
+                        <ChevronRight size={20} />
+                      </div>
                     )}
                   </div>
-                  <div>
-                    <h4 className="font-bold text-slate-800 text-[15px]">{autoridad.name}</h4>
-                    <p className="text-xs text-blue-600 font-medium">{t('institutional.authorities_csj')}</p>
-                  </div>
+                  {autoridad.bio && expandedMinister === idx && autoridad.bio}
                 </div>
               ))}
             </div>
@@ -252,7 +292,7 @@ const Institutional = () => {
                     <div className="mt-1 w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.8)]"></div>
                     <div>
                       <span className="font-bold text-blue-100">Encarnación:</span>
-                      <p className="text-slate-300">Abg. Melina Konjati (S1) y Abg. María del Carmen (S2)</p>
+                      <p className="text-slate-300">Abg. Melina Konjati (S1) y Abg. María del Carmen Ferreira (S2)</p>
                     </div>
                   </li>
                   <li className="flex gap-4 items-start">
