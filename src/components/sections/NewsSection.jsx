@@ -27,7 +27,8 @@ const NewsSection = () => {
             title: item.title,
             date: new Date(item.created_at).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' }),
             excerpt: item.excerpt,
-            image: item.image_url || "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=800"
+            image: item.image_url || "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=800",
+            instagramUrl: item.instagram_url
           }));
           setNewsItems(formattedData);
         } else {
@@ -73,42 +74,45 @@ const NewsSection = () => {
         ) : newsItems.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {newsItems.map((item) => (
-              <article
-              key={item.id} 
-              className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-primary-900/5 transition-all duration-300 border border-slate-100 group flex flex-col cursor-pointer hover:-translate-y-2"
-            >
-              <div className="relative h-60 overflow-hidden">
-                <div className="absolute inset-0 bg-slate-900/5 group-hover:bg-transparent transition-colors z-10" />
-                <img 
-                  src={item.image} 
-                  alt={item.title} 
-                  loading="lazy"
-                  className="w-full h-full object-cover transform scale-105 group-hover:scale-110 transition-transform duration-700 ease-in-out"
-                />
-                <div className="absolute top-5 left-5 z-20">
-                  <span className={`inline-flex items-center px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider ${item.tagColor} shadow-sm backdrop-blur-md bg-white/95`}>
-                    <Tag className="w-3.5 h-3.5 mr-1.5" />
-                    {item.tag}
-                  </span>
+              <a
+                key={item.id} 
+                href={item.instagramUrl || '#'} 
+                target={item.instagramUrl ? '_blank' : '_self'} 
+                rel="noopener noreferrer"
+                className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-primary-900/5 transition-all duration-300 border border-slate-100 group flex flex-col cursor-pointer hover:-translate-y-2"
+              >
+                <div className="relative h-60 overflow-hidden">
+                  <div className="absolute inset-0 bg-slate-900/5 group-hover:bg-transparent transition-colors z-10" />
+                  <img 
+                    src={item.image} 
+                    alt={item.title} 
+                    loading="lazy"
+                    className="w-full h-full object-cover transform scale-105 group-hover:scale-110 transition-transform duration-700 ease-in-out"
+                  />
+                  <div className="absolute top-5 left-5 z-20">
+                    <span className={`inline-flex items-center px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider ${item.tagColor} shadow-sm backdrop-blur-md bg-white/95`}>
+                      <Tag className="w-3.5 h-3.5 mr-1.5" />
+                      {item.tag}
+                    </span>
+                  </div>
                 </div>
-              </div>
-              <div className="p-8 flex flex-col flex-grow relative">
-                <div className="absolute top-0 right-8 -mt-6 bg-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg text-primary-600 z-20 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
-                  <ArrowRight className="w-6 h-6 -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
+                <div className="p-8 flex flex-col flex-grow relative">
+                  <div className="absolute top-0 right-8 -mt-6 bg-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg text-primary-600 z-20 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
+                    <ArrowRight className="w-6 h-6 -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
+                  </div>
+                  
+                  <div className="flex items-center text-sm font-medium text-slate-400 mb-4">
+                    <Calendar className="w-4 h-4 mr-2" />
+                    {item.date}
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-800 mb-4 group-hover:text-primary-600 transition-colors leading-snug">
+                    {item.title}
+                  </h3>
+                  <p className="text-slate-500 line-clamp-3">
+                    {item.excerpt}
+                  </p>
                 </div>
-                
-                <div className="flex items-center text-sm font-medium text-slate-400 mb-4">
-                  <Calendar className="w-4 h-4 mr-2" />
-                  {item.date}
-                </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-4 group-hover:text-primary-600 transition-colors leading-snug">
-                  {item.title}
-                </h3>
-                <p className="text-slate-500 line-clamp-3">
-                  {item.excerpt}
-                </p>
-              </div>
-            </article>
+              </a>
             ))}
           </div>
         ) : (

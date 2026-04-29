@@ -18,7 +18,8 @@ const NewsManager = () => {
     title: '',
     excerpt: '',
     tag: 'Institucional',
-    tagColor: 'bg-emerald-100 text-emerald-700'
+    tagColor: 'bg-emerald-100 text-emerald-700',
+    instagramUrl: ''
   });
   const [imageFile, setImageFile] = useState(null);
   
@@ -99,7 +100,8 @@ const NewsManager = () => {
           excerpt: formData.excerpt,
           tag: formData.tag,
           tag_color: formData.tagColor,
-          image_url: imageUrl || 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=800' // fallback img
+          image_url: imageUrl || 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=800', // fallback img
+          instagram_url: formData.instagramUrl
         }
       ]);
 
@@ -107,7 +109,7 @@ const NewsManager = () => {
 
       setMessage('Noticia publicada exitosamente.');
       setShowForm(false);
-      setFormData({ title: '', excerpt: '', tag: 'Institucional', tagColor: 'bg-emerald-100 text-emerald-700' });
+      setFormData({ title: '', excerpt: '', tag: 'Institucional', tagColor: 'bg-emerald-100 text-emerald-700', instagramUrl: '' });
       setImageFile(null);
       fetchNews(); // Recargar lista
 
@@ -196,6 +198,16 @@ const NewsManager = () => {
                         onChange={(e) => setFormData({...formData, title: e.target.value})}
                         className="w-full px-4 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none"
                         placeholder="Ej. Nuevo sistema de expedientes..."
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-slate-700 mb-1">Enlace de Instagram (Opcional)</label>
+                      <input 
+                        type="url" 
+                        value={formData.instagramUrl}
+                        onChange={(e) => setFormData({...formData, instagramUrl: e.target.value})}
+                        className="w-full px-4 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none"
+                        placeholder="https://www.instagram.com/p/..."
                       />
                     </div>
                     <div>
