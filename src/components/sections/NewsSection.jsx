@@ -81,13 +81,13 @@ const NewsSection = () => {
                 rel="noopener noreferrer"
                 className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-primary-900/5 transition-all duration-300 border border-slate-100 group flex flex-col cursor-pointer hover:-translate-y-2"
               >
-                <div className="relative h-60 overflow-hidden">
-                  <div className="absolute inset-0 bg-slate-900/5 group-hover:bg-transparent transition-colors z-10" />
+                <div className="relative h-72 overflow-hidden bg-slate-50">
+                  <div className="absolute inset-0 bg-slate-900/5 group-hover:bg-transparent transition-colors z-10 pointer-events-none" />
                   <img 
                     src={item.image} 
                     alt={item.title} 
                     loading="lazy"
-                    className="w-full h-full object-cover transform scale-105 group-hover:scale-110 transition-transform duration-700 ease-in-out"
+                    className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-700 ease-in-out"
                   />
                   <div className="absolute top-5 left-5 z-20">
                     <span className={`inline-flex items-center px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider ${item.tagColor} shadow-sm backdrop-blur-md bg-white/95`}>
