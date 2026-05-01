@@ -52,7 +52,7 @@ const Header = () => {
 
   return (
     <>
-      <header className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-lg py-2' : 'bg-white/95 py-4'}`}>
+      <header className={`sticky top-0 z-50 transition-all duration-300 py-3 ${scrolled ? 'bg-white shadow-md' : 'bg-white/95'}`}>
         <div className="max-w-[1440px] w-full mx-auto px-6 flex justify-between items-center">
           <Link to="/" className="flex items-center gap-3">
             <div className="bg-primary-900 p-2 rounded-lg shadow-sm">
