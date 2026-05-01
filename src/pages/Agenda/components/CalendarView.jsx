@@ -33,8 +33,11 @@ export const CalendarView = ({ onEditEvent }) => {
   };
 
   return (
-    <div className="flex-grow flex flex-col bg-white overflow-hidden rounded-xl border border-slate-200 shadow-sm relative">
-      <div className="grid grid-cols-[80px_1fr_1fr_1fr_1fr_1fr] bg-slate-50 border-b border-slate-200 sticky top-0 z-10">
+    <div className="flex-grow flex flex-col bg-white overflow-hidden rounded-xl border border-slate-200 shadow-sm relative overflow-x-auto">
+      <div 
+        className="grid bg-slate-50 border-b border-slate-200 sticky top-0 z-10 min-w-max"
+        style={{ gridTemplateColumns: `80px repeat(${GARANTIAS.length}, minmax(150px, 1fr))` }}
+      >
         <div className="p-4 text-center font-bold text-slate-500 border-r border-slate-200">Hora</div>
         {GARANTIAS.map(g => (
           <div key={g.id} className="p-4 text-center font-bold text-slate-800 border-r border-slate-200 last:border-0 truncate">
@@ -43,9 +46,12 @@ export const CalendarView = ({ onEditEvent }) => {
         ))}
       </div>
 
-      <div className="flex-grow overflow-y-auto relative">
+      <div className="flex-grow overflow-y-auto overflow-x-auto relative min-w-max">
         {/* Grid Background */}
-        <div className="absolute inset-0 grid grid-cols-[80px_1fr_1fr_1fr_1fr_1fr] pointer-events-none">
+        <div 
+          className="absolute inset-0 grid pointer-events-none"
+          style={{ gridTemplateColumns: `80px repeat(${GARANTIAS.length}, minmax(150px, 1fr))` }}
+        >
           <div className="border-r border-slate-200">
             {HOURS.map(hour => (
               <div key={hour} className="h-[80px] border-b border-slate-100 flex items-start justify-center pt-2">
@@ -59,7 +65,7 @@ export const CalendarView = ({ onEditEvent }) => {
                 <div key={hour} className="h-[80px] border-b border-slate-100"></div>
               ))}
               
-              {/* Events for this Garantia */}
+              {/* Events for this Juzgado */}
               {events.filter(e => e.garantiaId === g.id).map(event => {
                 const styles = calculateEventStyles(event.inicio, event.fin);
                 const status = getEventStatus(event.inicio, event.fin);

@@ -31,4 +31,13 @@ export const GARANTIAS = [
   { id: 'g3', name: 'Garantía 3' },
   { id: 'g4', name: 'Garantía 4' },
   { id: 'g5', name: 'Garantía 5' },
+  { id: 's1', name: 'Sentencia 1' },
+  { id: 's2', name: 'Sentencia 2' },
+  { id: 's3', name: 'Sentencia 3' },
+  { id: 's4', name: 'Sentencia 4' },
+  { id: 's5', name: 'Sentencia 5' },
+  { id: 's6', name: 'Sentencia 6' },
+  { id: 's7', name: 'Sentencia 7' },
+  { id: 's8', name: 'Sentencia 8' },
+  { id: 's9', name: 'Sentencia 9' },
 ];

@@ -9,7 +9,7 @@ import { useAgendaStore } from '../store';
 const schema = z.object({
   titulo: z.string().min(3, { message: "El título debe tener al menos 3 caracteres" }),
   expediente: z.string().min(3, { message: "El expediente es requerido" }),
-  garantiaId: z.string().min(1, { message: "Debe seleccionar una garantía" }),
+  garantiaId: z.string().min(1, { message: "Debe seleccionar un juzgado" }),
   sala: z.string().min(1, { message: "La sala es requerida" }),
   inicio: z.string().min(1, { message: "Fecha y hora de inicio requerida" }),
   fin: z.string().min(1, { message: "Fecha y hora de fin requerida" })
@@ -47,7 +47,7 @@ export const AppointmentForm = ({ isOpen, onClose, defaultValues }) => {
     
     // Anti-Solapamiento (Collision Detection)
     if (checkCollision(eventPayload, events)) {
-      setError('root', { message: 'Existe un solapamiento de horarios en esta Garantía.' });
+      setError('root', { message: 'Existe un solapamiento de horarios en este Juzgado.' });
       return;
     }
 
@@ -99,23 +99,27 @@ export const AppointmentForm = ({ isOpen, onClose, defaultValues }) => {
               {errors.expediente && <span className="text-red-500 text-xs mt-1 block">{errors.expediente.message}</span>}
             </div>
             <div>
-              <label className="block text-sm font-bold text-slate-700 mb-1">Sala</label>
-              <input 
+              <label className="block text-sm font-bold text-slate-700 mb-1">Sala de Juicio Oral</label>
+              <select 
                 {...register('sala')} 
                 className="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:outline-none"
-                placeholder="Ej. Sala 3"
-              />
+              >
+                <option value="">Seleccione una sala...</option>
+                <option value="Planta Baja">Planta Baja</option>
+                <option value="Primer Piso">Primer Piso</option>
+                <option value="Segundo Piso">Segundo Piso</option>
+              </select>
               {errors.sala && <span className="text-red-500 text-xs mt-1 block">{errors.sala.message}</span>}
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-bold text-slate-700 mb-1">Juzgado de Garantía</label>
+            <label className="block text-sm font-bold text-slate-700 mb-1">Juzgado</label>
             <select 
               {...register('garantiaId')} 
               className="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:outline-none"
             >
-              <option value="">Seleccione una garantía...</option>
+              <option value="">Seleccione un juzgado...</option>
               {GARANTIAS.map(g => (
                 <option key={g.id} value={g.id}>{g.name}</option>
               ))}
