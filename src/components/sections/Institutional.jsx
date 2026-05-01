@@ -155,12 +155,14 @@ const Institutional = () => {
                   className={`flex flex-col bg-white border border-slate-200 p-4 rounded-xl shadow-sm transition-all ${autoridad.bio ? 'cursor-pointer hover:border-blue-400 hover:shadow-md' : 'cursor-default hover:border-blue-300'}`}
                 >
                   <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 sm:w-12 sm:h-12 rounded-full bg-slate-100 flex items-center justify-center shrink-0 border border-slate-200 overflow-hidden">
-                      {autoridad.img ? (
-                        <img src={autoridad.img} alt={autoridad.name} className="w-full h-full object-cover" />
-                      ) : (
-                        <Users size={20} className="text-slate-600" />
-                      )}
+                    <div className="w-16 h-16 sm:w-12 sm:h-12 rounded-full p-[2px] bg-gradient-to-tr from-amber-500 via-yellow-200 to-amber-600 shadow-md ring-1 ring-amber-500/20 shrink-0">
+                      <div className="w-full h-full rounded-full overflow-hidden border-2 border-white bg-slate-100 flex items-center justify-center">
+                        {autoridad.img ? (
+                          <img src={autoridad.img} alt={autoridad.name} className="w-full h-full object-cover" />
+                        ) : (
+                          <Users size={20} className="text-slate-600" />
+                        )}
+                      </div>
                     </div>
                     <div className="flex-1">
                       <h4 className="font-bold text-slate-800 text-[15px] leading-tight">{autoridad.name}</h4>
@@ -184,8 +186,10 @@ const Institutional = () => {
               <div className="flex flex-col items-center gap-4">
                 {/* Presidente */}
                 <div className="p-5 rounded-xl border border-slate-100 bg-gradient-to-r from-slate-50 to-white flex items-center gap-4 transition-colors shadow-sm border-b-2 border-b-slate-200 w-full sm:w-[calc(50%-0.5rem)]">
-                  <div className="w-16 h-16 rounded-full overflow-hidden shrink-0 border-2 border-white shadow-sm">
-                    <img src={vargasImg} alt="Abg. Miguel Ángel Vargas Díaz" className="w-full h-full object-cover" />
+                  <div className="w-16 h-16 rounded-full shrink-0 p-[2px] bg-gradient-to-tr from-amber-500 via-yellow-200 to-amber-600 shadow-lg ring-1 ring-amber-500/30">
+                    <div className="w-full h-full rounded-full overflow-hidden border-2 border-white">
+                      <img src={vargasImg} alt="Abg. Miguel Ángel Vargas Díaz" className="w-full h-full object-cover" />
+                    </div>
                   </div>
                   <div>
                     <p className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">{t('institutional.council_pres')}</p>
@@ -200,8 +204,10 @@ const Institutional = () => {
                     { title: t('institutional.council_vp2'), name: "Abg. Claudia Andrea Scappini Parzajuk", img: scappiniImg }
                   ].map((member, idx) => (
                     <div key={idx} className="p-5 rounded-xl border border-slate-100 bg-slate-50 flex items-center gap-4 transition-colors">
-                      <div className="w-16 h-16 rounded-full overflow-hidden shrink-0 border-2 border-white shadow-sm">
-                        <img src={member.img} alt={member.name} className="w-full h-full object-cover" />
+                      <div className="w-16 h-16 rounded-full shrink-0 p-[2px] bg-gradient-to-tr from-amber-500 via-yellow-200 to-amber-600 shadow-lg ring-1 ring-amber-500/30">
+                        <div className="w-full h-full rounded-full overflow-hidden border-2 border-white">
+                          <img src={member.img} alt={member.name} className="w-full h-full object-cover" />
+                        </div>
                       </div>
                       <div>
                         <p className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">{member.title}</p>
