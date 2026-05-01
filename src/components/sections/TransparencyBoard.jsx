@@ -28,16 +28,18 @@ const TransparencyBoard = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
               {authorities.map((a, i) => (
-                <div key={i} className="bg-slate-50 rounded-3xl p-8 border border-slate-100 text-center hover:shadow-lg transition-all group hover:-translate-y-1">
-                  <div className="w-28 h-28 rounded-full mx-auto mb-6 border-4 border-white shadow-md bg-primary-100 flex items-center justify-center text-primary-600 overflow-hidden">
-                    {a.image ? (
-                      <img src={a.image} alt={a.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                    ) : (
-                      <User size={56} strokeWidth={1.5} />
-                    )}
+                <div key={i} className="bg-gradient-to-br from-white to-amber-50/10 rounded-3xl p-8 border border-amber-200/80 text-center shadow-sm hover:shadow-xl transition-all duration-300 group hover:-translate-y-2 hover:border-amber-400">
+                  <div className="w-28 h-28 rounded-full mx-auto mb-6 shrink-0 p-[3px] bg-gradient-to-tr from-amber-500 via-yellow-200 to-amber-600 shadow-lg ring-2 ring-amber-500/30">
+                    <div className="w-full h-full rounded-full overflow-hidden border-4 border-white bg-slate-100 flex items-center justify-center text-slate-600">
+                      {a.image ? (
+                        <img src={a.image} alt={a.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                      ) : (
+                        <User size={56} strokeWidth={1.5} />
+                      )}
+                    </div>
                   </div>
                   <h4 className="font-bold text-slate-900 text-lg leading-tight min-h-[3rem] flex items-center justify-center px-2">{a.name}</h4>
-                  <p className="text-sm text-primary-700 font-bold mt-2 uppercase tracking-wide">{a.role}</p>
+                  <p className="text-sm text-amber-600 font-bold mt-2 uppercase tracking-wide">{a.role}</p>
 
                 </div>
               ))}
