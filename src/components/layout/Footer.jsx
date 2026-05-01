@@ -22,10 +22,7 @@ const Footer = () => {
             <p className="text-sm leading-relaxed mb-6">
               {t('footer.desc')}
             </p>
-            <div className="flex gap-4">
-              <button className="bg-slate-800 p-2 rounded hover:bg-primary-600 cursor-pointer transition-colors focus:outline-none" aria-label="Sitio web"><Globe size={18} /></button>
-              <a href="https://mail.pj.gov.py/owa/auth/logon.aspx?replaceCurrent=1&url=https%3a%2f%2fmail.pj.gov.py%2fowa%2f" target="_blank" rel="noopener noreferrer" className="bg-slate-800 p-2 rounded hover:bg-primary-600 cursor-pointer transition-colors focus:outline-none flex items-center" aria-label="Correo electrónico"><Mail size={18} /></a>
-            </div>
+
           </div>
 
           <div>
