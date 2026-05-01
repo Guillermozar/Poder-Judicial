@@ -58,7 +58,7 @@ const DistrictsGuide = () => {
         </div>
 
         {/* Sede Central - Simplificado */}
-        <div className="max-w-xl mx-auto mb-16 bg-white p-8 rounded-[2rem] shadow-xl border border-slate-100 text-center">
+        <div className="max-w-xl mx-auto mb-16 bg-gradient-to-br from-white to-amber-50/10 p-8 rounded-[2rem] shadow-xl border border-amber-200/80 text-center hover:border-amber-400 hover:shadow-2xl transition-all duration-300 group">
           <div className="bg-primary-50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-primary-900 mx-auto">
             <MapPin size={32} />
           </div>
@@ -80,7 +80,7 @@ const DistrictsGuide = () => {
             <button 
               key={i} 
               onClick={() => handleOpenModal(d)}
-              className="bg-white px-5 py-2.5 rounded-full border border-slate-200 text-sm font-bold text-slate-700 hover:bg-primary-900 hover:text-white hover:border-primary-900 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all shadow-sm hover:shadow-md active:scale-95"
+              className="bg-gradient-to-br from-white to-amber-50/10 px-5 py-2.5 rounded-full border border-amber-200/80 text-sm font-bold text-slate-700 hover:bg-white hover:text-amber-900 hover:border-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all shadow-sm hover:shadow-md active:scale-95"
             >
               {d.name}
             </button>
