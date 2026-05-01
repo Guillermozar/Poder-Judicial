@@ -43,7 +43,7 @@ const Institutional = () => {
         {/* 2. Identidad Estratégica (Grid) */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-24 cursor-default">
           {/* Misión */}
-          <div className="group bg-slate-50 border border-slate-100 rounded-2xl p-8 hover:bg-white hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300">
+          <div className="group bg-gradient-to-br from-white to-amber-50/10 border border-amber-200/60 rounded-2xl p-8 hover:bg-white hover:border-amber-400 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
             <div className="w-12 h-12 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
               <Navigation size={24} />
             </div>
@@ -54,7 +54,7 @@ const Institutional = () => {
           </div>
 
           {/* Visión */}
-          <div className="group bg-slate-50 border border-slate-100 rounded-2xl p-8 hover:bg-white hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300">
+          <div className="group bg-gradient-to-br from-white to-amber-50/10 border border-amber-200/60 rounded-2xl p-8 hover:bg-white hover:border-amber-400 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
             <div className="w-12 h-12 rounded-xl bg-slate-200 text-slate-700 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-300">
               <Eye size={24} />
             </div>
@@ -65,7 +65,7 @@ const Institutional = () => {
           </div>
 
           {/* Valores: Independencia & Imparcialidad */}
-          <div className="group bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-8 text-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300 sm:col-span-2 lg:col-span-2 relative overflow-hidden">
+          <div className="group bg-gradient-to-br from-slate-900 to-slate-800 border border-amber-500/30 rounded-2xl p-8 text-white hover:shadow-xl hover:border-amber-500/60 hover:-translate-y-1 transition-all duration-300 sm:col-span-2 lg:col-span-2 relative overflow-hidden">
             <div className="absolute top-0 right-0 p-8 opacity-10">
               <Scale size={120} />
             </div>
@@ -152,9 +152,8 @@ const Institutional = () => {
                 <div 
                   key={idx} 
                   onClick={() => autoridad.bio && setExpandedMinister(expandedMinister === idx ? null : idx)}
-                  className={`flex flex-col bg-white border border-slate-100 p-4 rounded-2xl shadow-sm transition-all relative overflow-hidden group/card ${autoridad.bio ? 'cursor-pointer hover:border-amber-400/50 hover:shadow-lg' : 'cursor-default hover:border-slate-200'}`}
+                  className={`flex flex-col bg-gradient-to-br from-white to-amber-50/10 border border-amber-200/80 p-4 rounded-2xl shadow-sm transition-all relative overflow-hidden ${autoridad.bio ? 'cursor-pointer hover:border-amber-400 hover:shadow-lg' : 'cursor-default hover:border-amber-300'}`}
                 >
-                  <div className="absolute top-0 left-0 w-1 h-full bg-amber-500/0 group-hover/card:bg-amber-500/40 transition-all"></div>
                   <div className="flex items-center gap-4">
                     <div className="w-16 h-16 sm:w-12 sm:h-12 rounded-full p-[2px] bg-gradient-to-tr from-amber-500 via-yellow-200 to-amber-600 shadow-md ring-1 ring-amber-500/20 shrink-0">
                       <div className="w-full h-full rounded-full overflow-hidden border-2 border-white bg-slate-100 flex items-center justify-center">
@@ -186,8 +185,7 @@ const Institutional = () => {
               
               <div className="flex flex-col items-center gap-4">
                 {/* Presidente */}
-                <div className="p-5 rounded-2xl border border-amber-100 bg-gradient-to-r from-amber-50/30 to-white flex items-center gap-4 transition-all shadow-sm hover:shadow-md hover:border-amber-200 w-full sm:w-[calc(50%-0.5rem)] relative overflow-hidden group/pres">
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-amber-100/20 rounded-full -mr-12 -mt-12 blur-2xl group-hover/pres:bg-amber-100/40 transition-colors"></div>
+                <div className="p-5 rounded-2xl border border-amber-300 bg-gradient-to-r from-amber-50/40 to-white flex items-center gap-4 transition-all shadow-sm hover:shadow-md hover:border-amber-400 w-full sm:w-[calc(50%-0.5rem)] relative overflow-hidden">
                   <div className="w-16 h-16 rounded-full shrink-0 p-[2px] bg-gradient-to-tr from-amber-500 via-yellow-200 to-amber-600 shadow-lg ring-1 ring-amber-500/30">
                     <div className="w-full h-full rounded-full overflow-hidden border-2 border-white">
                       <img src={vargasImg} alt="Abg. Miguel Ángel Vargas Díaz" className="w-full h-full object-cover" />
@@ -205,8 +203,7 @@ const Institutional = () => {
                     { title: t('institutional.council_vp1'), name: "Abg. Nilsa Inés Monzón de Sarquis", img: monzonImg },
                     { title: t('institutional.council_vp2'), name: "Abg. Claudia Andrea Scappini Parzajuk", img: scappiniImg }
                   ].map((member, idx) => (
-                    <div key={idx} className="p-5 rounded-2xl border border-slate-100 bg-slate-50 flex items-center gap-4 transition-all hover:bg-white hover:border-amber-100 hover:shadow-md relative overflow-hidden group/vp">
-                      <div className="absolute top-0 left-0 w-1 h-0 bg-amber-400 group-hover/vp:h-full transition-all duration-300"></div>
+                    <div key={idx} className="p-5 rounded-2xl border border-amber-200/80 bg-gradient-to-br from-white to-amber-50/10 flex items-center gap-4 transition-all hover:bg-white hover:border-amber-400 hover:shadow-md relative overflow-hidden">
                       <div className="w-16 h-16 rounded-full shrink-0 p-[2px] bg-gradient-to-tr from-amber-500 via-yellow-200 to-amber-600 shadow-lg ring-1 ring-amber-500/30">
                         <div className="w-full h-full rounded-full overflow-hidden border-2 border-white">
                           <img src={member.img} alt={member.name} className="w-full h-full object-cover" />
@@ -236,7 +233,7 @@ const Institutional = () => {
             
             <div className="space-y-4">
               {/* Accordion-like cards */}
-              <div className="bg-white border text-sm border-slate-200 rounded-xl p-5 hover:shadow-md transition-shadow">
+              <div className="bg-gradient-to-br from-white to-amber-50/10 border text-sm border-amber-200/60 rounded-2xl p-5 hover:shadow-md hover:border-amber-400 transition-all">
                 <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3">
                   <Gavel size={18} className="text-blue-600"/> {t('institutional.struct_civil')}
                 </h4>
@@ -252,7 +249,7 @@ const Institutional = () => {
                 </div>
               </div>
 
-              <div className="bg-white border text-sm border-slate-200 rounded-xl p-5 hover:shadow-md transition-shadow">
+              <div className="bg-gradient-to-br from-white to-amber-50/10 border text-sm border-amber-200/60 rounded-2xl p-5 hover:shadow-md hover:border-amber-400 transition-all">
                 <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3">
                   <Gavel size={18} className="text-blue-600"/> {t('institutional.struct_penal')}
                 </h4>
@@ -268,7 +265,7 @@ const Institutional = () => {
                 </div>
               </div>
 
-              <div className="bg-white border text-sm border-slate-200 rounded-xl p-5 hover:shadow-md transition-shadow">
+              <div className="bg-gradient-to-br from-white to-amber-50/10 border text-sm border-amber-200/60 rounded-2xl p-5 hover:shadow-md hover:border-amber-400 transition-all">
                 <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-3">
                   <Gavel size={18} className="text-blue-600"/> {t('institutional.struct_ninez')}
                 </h4>

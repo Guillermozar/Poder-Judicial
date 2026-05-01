@@ -22,7 +22,7 @@ const ServicesGrid = () => {
             href={s.link} 
             target={s.link.startsWith('http') ? "_blank" : "_self"} 
             rel="noopener noreferrer"
-            className="bg-white p-6 rounded-2xl shadow-xl hover:-translate-y-2 transition-transform cursor-pointer border border-slate-100 group block"
+            className="bg-gradient-to-br from-white to-amber-50/10 p-6 rounded-2xl shadow-xl hover:-translate-y-2 transition-all cursor-pointer border border-amber-200/80 hover:border-amber-400 group block"
           >
             <div className={`${s.color} text-white w-14 h-14 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform`}>
               {s.icon}

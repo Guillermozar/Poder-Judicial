@@ -79,7 +79,7 @@ const NewsSection = () => {
                 href={item.instagramUrl || '#'} 
                 target={item.instagramUrl ? '_blank' : '_self'} 
                 rel="noopener noreferrer"
-                className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-primary-900/5 transition-all duration-300 border border-slate-100 group flex flex-col cursor-pointer hover:-translate-y-2"
+                className="bg-gradient-to-br from-white to-amber-50/10 rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 border border-amber-200/80 hover:border-amber-400 group flex flex-col cursor-pointer hover:-translate-y-2"
               >
                 <div className="relative h-72 overflow-hidden bg-slate-50">
                   <div className="absolute inset-0 bg-slate-900/5 group-hover:bg-transparent transition-colors z-10 pointer-events-none" />
