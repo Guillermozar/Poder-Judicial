@@ -33,7 +33,7 @@ const Footer = () => {
             <ul className="space-y-4 text-sm">
               <li><a href="https://www.pj.gov.py/" target="_blank" rel="noopener noreferrer" className="hover:text-white flex items-center gap-2 focus:outline-none"><ChevronRight size={14} /> {t('footer.csj')}</a></li>
               <li><a href="#" className="hover:text-white flex items-center gap-2 focus:outline-none"><ChevronRight size={14} /> {t('footer.penal')}</a></li>
-              <li><a href="https://apps.csj.gov.py/login" target="_blank" rel="noopener noreferrer" className="hover:text-white flex items-center gap-2 focus:outline-none"><ChevronRight size={14} /> Sistema Judisoft</a></li>
+              <li><a href="https://www.csj.gov.py/portal" target="_blank" rel="noopener noreferrer" className="hover:text-white flex items-center gap-2 focus:outline-none"><ChevronRight size={14} /> Gestión de Expedientes</a></li>
               <li><a href="https://ingresosjudiciales.csj.gov.py/LiquidacionesWeb/home.seam" target="_blank" rel="noopener noreferrer" className="hover:text-white flex items-center gap-2 focus:outline-none"><ChevronRight size={14} /> Tasas Judiciales</a></li>
               <li><Link to="/calendario" className="hover:text-white flex items-center gap-2 focus:outline-none"><ChevronRight size={14} /> Calendario (Agenda)</Link></li>
               <li><a href="https://mail.pj.gov.py/owa/auth/logon.aspx?replaceCurrent=1&url=https%3a%2f%2fmail.pj.gov.py%2fowa%2f" target="_blank" rel="noopener noreferrer" className="hover:text-white flex items-center gap-2 focus:outline-none"><ChevronRight size={14} /> Correo Institucional</a></li>

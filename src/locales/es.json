@@ -29,7 +29,7 @@
     "btn_guide": "GUÍA DE TRÁMITES"
   },
   "services": {
-    "judicial_soft": { "title": "Judisoft", "desc": "Gestión de Expedientes Electrónicos" },
+    "judicial_soft": { "title": "Gestión de Expedientes", "desc": "Gestión de Expedientes Electrónicos" },
     "criminal_records": { "title": "Antecedentes", "desc": "Informes y Certificados Penales" },
     "judicial_fees": { "title": "Tasas Judiciales", "desc": "Liquidación y Pago de Tasas" },
     "personnel_entry": { "title": "Ingreso y Promoción de Personas", "desc": "Concursos y Oportunidades" },

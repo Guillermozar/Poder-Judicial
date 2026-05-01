@@ -15,7 +15,7 @@ const Header = () => {
     { title: t('header.nav.home'), path: '/' },
     { title: t('header.nav.institutional'), path: '/institucional' },
     { title: t('header.nav.districts'), path: '/#distritos' },
-    { title: 'Expediente Electrónico Judicial', path: 'https://apps.csj.gov.py/login', external: true },
+    { title: 'Expediente Electrónico Judicial', path: 'https://www.csj.gov.py/portal', external: true },
     { title: 'Corte Suprema', path: 'https://www.pj.gov.py', external: true }
   ];
 

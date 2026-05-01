@@ -29,7 +29,7 @@
     "btn_guide": "GUÍA DE TRÁMITES (Mba'éichapa ojejapo)"
   },
   "services": {
-    "judicial_soft": { "title": "Judisoft", "desc": "Ñanduti rupive mba'eapopaha hechapyrã" },
+    "judicial_soft": { "title": "Gestión de Expedientes", "desc": "Ñanduti rupive mba'eapopaha hechapyrã" },
     "criminal_records": { "title": "Amandaje", "desc": "Kuatia'atã ha Mombaryry" },
     "judicial_fees": { "title": "Virupurã", "desc": "Viru poyhui" },
     "personnel_entry": { "title": "Tapichakuéra Oike ha Oñemotenondéva", "desc": "Mba'apo Rekávo ha Ñemotenonde" },

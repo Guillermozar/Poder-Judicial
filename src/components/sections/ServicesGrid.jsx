@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 const ServicesGrid = () => {
   const { t } = useTranslation();
   const services = [
-    { title: t('services.judicial_soft.title'), icon: <Scale className="w-8 h-8" />, desc: t('services.judicial_soft.desc'), color: "bg-primary-600", link: "https://apps.csj.gov.py/login" },
+    { title: t('services.judicial_soft.title'), icon: <Scale className="w-8 h-8" />, desc: t('services.judicial_soft.desc'), color: "bg-primary-600", link: "https://www.csj.gov.py/portal" },
     { title: t('services.criminal_records.title'), icon: <ShieldCheck className="w-8 h-8" />, desc: t('services.criminal_records.desc'), color: "bg-emerald-600", link: "https://www.csj.gov.py/informesjudiciales/" },
     { title: t('services.judicial_fees.title'), icon: <FileText className="w-8 h-8" />, desc: t('services.judicial_fees.desc'), color: "bg-amber-600", link: "https://ingresosjudiciales.csj.gov.py/LiquidacionesWeb/home.seam" },
     { title: t('services.personnel_entry.title'), icon: <Users className="w-8 h-8" />, desc: t('services.personnel_entry.desc'), color: "bg-indigo-600", link: "https://www.pj.gov.py/contenido/1609-concursos-de-ingreso-y-promocion-de-personas/3343" },
