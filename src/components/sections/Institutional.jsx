@@ -116,7 +116,7 @@ const Institutional = () => {
           <div className="grid lg:grid-cols-5 gap-8">
             {/* Superintendentes - Destacados */}
             <div className="lg:col-span-2 space-y-4">
-              <h3 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-6 pl-2 border-l-2 border-blue-600">{t('institutional.authorities_ministers')}</h3>
+              <h3 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-6 pl-2 border-l-2 border-amber-500">{t('institutional.authorities_ministers')}</h3>
               
               {[
                 { 
@@ -152,8 +152,9 @@ const Institutional = () => {
                 <div 
                   key={idx} 
                   onClick={() => autoridad.bio && setExpandedMinister(expandedMinister === idx ? null : idx)}
-                  className={`flex flex-col bg-white border border-slate-200 p-4 rounded-xl shadow-sm transition-all ${autoridad.bio ? 'cursor-pointer hover:border-blue-400 hover:shadow-md' : 'cursor-default hover:border-blue-300'}`}
+                  className={`flex flex-col bg-white border border-slate-100 p-4 rounded-2xl shadow-sm transition-all relative overflow-hidden group/card ${autoridad.bio ? 'cursor-pointer hover:border-amber-400/50 hover:shadow-lg' : 'cursor-default hover:border-slate-200'}`}
                 >
+                  <div className="absolute top-0 left-0 w-1 h-full bg-amber-500/0 group-hover/card:bg-amber-500/40 transition-all"></div>
                   <div className="flex items-center gap-4">
                     <div className="w-16 h-16 sm:w-12 sm:h-12 rounded-full p-[2px] bg-gradient-to-tr from-amber-500 via-yellow-200 to-amber-600 shadow-md ring-1 ring-amber-500/20 shrink-0">
                       <div className="w-full h-full rounded-full overflow-hidden border-2 border-white bg-slate-100 flex items-center justify-center">
@@ -181,11 +182,12 @@ const Institutional = () => {
 
             {/* Consejo */}
             <div className="lg:col-span-3 space-y-4">
-              <h3 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-6 pl-2 border-l-2 border-slate-400">{t('institutional.authorities_council')}</h3>
+              <h3 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-6 pl-2 border-l-2 border-amber-500">{t('institutional.authorities_council')}</h3>
               
               <div className="flex flex-col items-center gap-4">
                 {/* Presidente */}
-                <div className="p-5 rounded-xl border border-slate-100 bg-gradient-to-r from-slate-50 to-white flex items-center gap-4 transition-colors shadow-sm border-b-2 border-b-slate-200 w-full sm:w-[calc(50%-0.5rem)]">
+                <div className="p-5 rounded-2xl border border-amber-100 bg-gradient-to-r from-amber-50/30 to-white flex items-center gap-4 transition-all shadow-sm hover:shadow-md hover:border-amber-200 w-full sm:w-[calc(50%-0.5rem)] relative overflow-hidden group/pres">
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-amber-100/20 rounded-full -mr-12 -mt-12 blur-2xl group-hover/pres:bg-amber-100/40 transition-colors"></div>
                   <div className="w-16 h-16 rounded-full shrink-0 p-[2px] bg-gradient-to-tr from-amber-500 via-yellow-200 to-amber-600 shadow-lg ring-1 ring-amber-500/30">
                     <div className="w-full h-full rounded-full overflow-hidden border-2 border-white">
                       <img src={vargasImg} alt="Abg. Miguel Ángel Vargas Díaz" className="w-full h-full object-cover" />
@@ -203,7 +205,8 @@ const Institutional = () => {
                     { title: t('institutional.council_vp1'), name: "Abg. Nilsa Inés Monzón de Sarquis", img: monzonImg },
                     { title: t('institutional.council_vp2'), name: "Abg. Claudia Andrea Scappini Parzajuk", img: scappiniImg }
                   ].map((member, idx) => (
-                    <div key={idx} className="p-5 rounded-xl border border-slate-100 bg-slate-50 flex items-center gap-4 transition-colors">
+                    <div key={idx} className="p-5 rounded-2xl border border-slate-100 bg-slate-50 flex items-center gap-4 transition-all hover:bg-white hover:border-amber-100 hover:shadow-md relative overflow-hidden group/vp">
+                      <div className="absolute top-0 left-0 w-1 h-0 bg-amber-400 group-hover/vp:h-full transition-all duration-300"></div>
                       <div className="w-16 h-16 rounded-full shrink-0 p-[2px] bg-gradient-to-tr from-amber-500 via-yellow-200 to-amber-600 shadow-lg ring-1 ring-amber-500/30">
                         <div className="w-full h-full rounded-full overflow-hidden border-2 border-white">
                           <img src={member.img} alt={member.name} className="w-full h-full object-cover" />
