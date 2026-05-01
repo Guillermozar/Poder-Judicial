@@ -338,7 +338,7 @@ const Institutional = () => {
         <div className="grid lg:grid-cols-12 gap-8 items-stretch">
           
           {/* Infraestructura (Imagen/Texto) */}
-          <div className="lg:col-span-8 bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm flex flex-col sm:flex-row group cursor-default">
+          <div className="lg:col-span-8 bg-gradient-to-br from-white to-amber-50/10 rounded-3xl overflow-hidden border border-amber-200/80 shadow-sm flex flex-col sm:flex-row group cursor-default hover:border-amber-400 hover:shadow-md transition-all duration-300">
             <div className="sm:w-2/5 md:w-1/2 relative overflow-hidden h-64 sm:h-auto min-h-[300px]">
               <img 
                 src={fachadaImg} 
@@ -380,7 +380,7 @@ const Institutional = () => {
 
           {/* Servicios Ciudadanos */}
           <div className="lg:col-span-4 flex flex-col gap-4">
-            <div className="bg-slate-900 text-white rounded-3xl p-8 flex-1 border border-slate-800 hover:border-slate-600 transition-colors">
+            <div className="bg-slate-900 text-white rounded-3xl p-8 flex-1 border border-amber-500/30 hover:border-amber-500/60 transition-all duration-300">
               <h3 className="text-lg font-bold mb-6">{t('institutional.serv_title')}</h3>
               
               <div className="space-y-5">
