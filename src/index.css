@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -61,7 +62,7 @@ html.high-contrast button {
 }
 
 html.font-dyslexic * {
-  font-family: "Comic Sans MS", "Comic Sans", "Lexend", sans-serif !important;
+  font-family: 'Lexend', "Comic Sans MS", "Comic Sans", sans-serif !important;
   letter-spacing: 0.05em !important;
   word-spacing: 0.1em !important;
   line-height: 1.6 !important;
