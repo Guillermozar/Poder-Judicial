@@ -113,6 +113,35 @@ const Institutional = () => {
             <p className="text-slate-500 max-w-2xl mx-auto">{t('institutional.authorities_desc')}</p>
           </div>
           
+          {/* Consejo de Superintendencia - Corte Suprema */}
+          <div className="mb-12">
+            <h3 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-6 pl-2 border-l-2 border-amber-500">{t('institutional.authorities_csj_board')}</h3>
+            
+            <div className="grid md:grid-cols-3 gap-6">
+              {[
+                { title: t('institutional.csj_pres'), name: "S. E. Dr. Alberto Joaquín Martínez Simón", img: null },
+                { title: t('institutional.csj_vp1'), name: "S. E. Dr. Luis María Benítez Riera", img: null },
+                { title: t('institutional.csj_vp2'), name: "S. E. Dr. Gustavo Santander Dans", img: null }
+              ].map((member, idx) => (
+                <div key={`csj-${idx}`} className="p-5 rounded-2xl border border-amber-200/80 bg-gradient-to-br from-white to-amber-50/10 flex items-center gap-4 transition-all hover:bg-white hover:border-amber-400 hover:shadow-md relative overflow-hidden">
+                  <div className="w-16 h-16 rounded-full shrink-0 p-[2px] bg-gradient-to-tr from-amber-500 via-yellow-200 to-amber-600 shadow-lg ring-1 ring-amber-500/30">
+                    <div className="w-full h-full rounded-full overflow-hidden border-2 border-white bg-slate-100 flex items-center justify-center">
+                      {member.img ? (
+                        <img src={member.img} alt={member.name} className="w-full h-full object-cover" />
+                      ) : (
+                        <Users size={24} className="text-slate-400" />
+                      )}
+                    </div>
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-wider text-amber-600 mb-1">{member.title}</p>
+                    <p className="font-semibold text-slate-800 leading-tight text-sm">{member.name}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          
           <div className="grid lg:grid-cols-5 gap-8">
             {/* Superintendentes - Destacados */}
             <div className="lg:col-span-2 space-y-4">
